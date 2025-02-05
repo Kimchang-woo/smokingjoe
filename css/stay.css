@@ -24,3 +24,9 @@ padding: 0.5rem; border: 0.2rem solid #ff5910; border-radius: 10%; opacity: 0;;
 transition: 0.5s;}
 .subnat{display: flex; justify-content: start; align-items: center;}
 .naticonsub img {width: 3rem; height: 2rem; padding: 0.2rem; margin-right: 0.2rem;}
+
+.topIMG{
+    width: 100vw;
+    height: 20px;
+    background-color: skyblue;
+}
