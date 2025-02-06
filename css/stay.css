@@ -24,16 +24,153 @@ padding: 0.5rem; border: 0.2rem solid #ff5910; border-radius: 10%; opacity: 0;;
 transition: 0.5s;}
 .subnat{display: flex; justify-content: start; align-items: center;}
 .naticonsub img {width: 3rem; height: 2rem; padding: 0.2rem; margin-right: 0.2rem;}
-
+/* nav end */
 .top_1 {
     width: 100vw;
-    height: 800px;
-    background-color: skyblue;
-    margin-bottom: 100px;
+    height: 50rem;
+    margin-bottom: 30rem;
+    position: relative;
 }
+    .top_1 img{
+        width: 100%;
+        height: 100%;
+    }
+    .mainName{
+        position: absolute;
+        top: 65%;
+        left: 22%;
+        transform: translate(-50%, -50%);
+        font-size: 1.7rem;
+        color: #ffffff;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    }
+        .mainName > p{
+            font-size: 2.1rem;
+        }
+/* top_1 end */
 .top_2 {
     width: 100vw;
-    height: 800px;
-    background-color: pink;
+    height: 50rem;
     margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 30rem;
 }
+    .sec2_topBox{
+        width: 100%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+    }
+        .sec2_topBox > div:nth-child(1){
+            width: 30%;
+            height: 100%;
+            background-color: #002d72;
+            font-size: 1.7rem;
+            color: #ffffff;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        .sec2_topBox > div:nth-child(1) > div:nth-child(1) {
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            margin-left: 2rem;
+        }
+            .topBox_text > p{
+                margin-left: 1rem;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+            }
+        .sec2_topBox > div:nth-child(2){
+            width: 50%;
+            height: 100%;
+            background-color: #002d72;
+        }
+        .sec2_topBox > div:nth-child(2) > img{
+            width: 100%;
+            height: 100%;
+        }
+    .sec2_botBox{
+        width: 100%;
+        height: 30%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+        .sec2_botBox > div{
+            width: 20%;
+            height: 100%;
+            background-color: #002d72;
+        }
+            .sec2_botBox > div > img{
+                width: 100%;
+                height: 100%;
+            }
+/* top_2 end */
+.top_3 {
+    width: 100vw;
+    height: 50rem;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 30rem;
+}
+    .sec3_topBox{
+        width: 100%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+    }
+        .sec3_topBox > div:nth-child(2){
+            width: 30%;
+            height: 100%;
+            background-color: #002d72;
+            font-size: 1.7rem;
+            color: #ffffff;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        .sec3_topBox > div:nth-child(2) > div:nth-child(1) {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            margin-left: 2rem;
+        }
+            .topBox_text > p{
+                margin-left: 1rem;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+            }
+        .sec3_topBox > div:nth-child(1){
+            width: 50%;
+            height: 100%;
+            background-color: #002d72;
+        }
+        .sec3_topBox > div:nth-child(1) > img{
+            width: 100%;
+            height: 100%;
+        }
+    .sec3_botBox{
+        width: 100%;
+        height: 30%;
+        display: flex;
+        justify-content: space-evenly;
+                }
+        .sec3_botBox > div{
+            width: 20%;
+            height: 100%;
+            background-color: #002d72;
+        }
+            .sec3_botBox > div > img{
+                width: 100%;
+                height: 100%;
+            }
+/* top_3 end */
