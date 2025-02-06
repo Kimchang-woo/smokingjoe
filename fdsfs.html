@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>안산 현재 날씨</h1>
+    <div class="outbox">
+        <div>
+            <span>기온</span>
+            <span id="temp"></span>
+        </div>
+        <div>
+            <span>풍속</span>
+            <span id="wind"></span>
+        </div>
+        <div>
+            <span>위치</span>
+            <span id="an"></span>
+        </div>
+        <div>
+            <span>날씨 설명</span>
+            <span id="whe"></span>
+        </div>
+        <div>
+            <span>icon</span>
+            <span id="iconW"></span>
+        </div>
+    </div>
+    <script>
+        let temp=document.querySelector('#temp');
+        let wind = document.querySelector('#wind');
+        let an = document.querySelector('#an');
+        let whe = document.querySelector('#whe');
+        let iconW = document.querySelector('#iconW');
+        let API_key="f345d9fa15f0951d6b2f408db3fb8d00";
+        let cityname="ansan";
+
+        let weather= async()=>{
+            let response= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${API_key}&units=metric`);
+            let data=await response.json();
+
+            console.log(data);
+            temp.textContent=data.main.temp;
+            wind.textContent=data.wind.speed;
+            an.textContent=data.name;
+            whe.textContent=data.weather[0].description;
+
+            const icon = new Image();
+            iconurl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+            icon.src = iconurl;
+            iconW.appendChild(icon);
+        }
+
+        weather();
+
+    </script>
+</body>
+</html>

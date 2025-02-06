@@ -1,16 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/home.css">
-    <title>해운대</title>
+    <title>해운대 관광 정보</title>
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2237e1d4164afe675ac45fd0c6310ad4&libraries=services"></script>
+    <style>
+        @font-face {
+            font-family: 'MyFont';
+            src: url(../BusanFont.ttf) format('ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'MyFont', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100vw;
+
+            /* overflow -x hidden으로 변경함 */
+
+        }
+
+        header {
+            display: flex;
+            width: 100%;
+            height: 8rem;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #002d72;
+            padding: 0 2rem;
+            /* 좌우 패딩 추가함 */
+        }
+
+        .logo {
+            width: 7rem;
+            height: 7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 80%;
+            /* 일단 수정함 */
+            height: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            color: #ffffff;
+            justify-content: space-around;
+            width: 50rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .hdicons {
+            width: 12rem;
+            height: 7rem;
+            margin-right: 10rem;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .naticon {
+            background-image: url(../image/home/korea.png);
+            width: 3rem;
+            height: 2rem;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .naticon:hover .naticonsub {
+            opacity: 1;
+        }
+
+        .naticonsub {
+            position: relative;
+            top: 4rem;
+            right: 1.8rem;
+            background-color: #002d72;
+            width: 5.5rem;
+            padding: 0.5rem;
+            border: 0.2rem solid #ff5910;
+            border-radius: 10%;
+            opacity: 0;
+            ;
+            transition: 0.5s;
+        }
+
+        .subnat {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .naticonsub img {
+            width: 3rem;
+            height: 2rem;
+            padding: 0.2rem;
+            margin-right: 0.2rem;
+        }
+
+        .section {
+            width: 100%;
+            height: 2000px;
+            padding: 20px;
+        }
+
+        #container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .boxTitle {
+            display: block
+        }
+
+        .weather-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .weather-icon {
+            width: 9rem;
+            height: auto;
+        }
+
+        .weather-text {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .weather-box,
+        .forecast-box,
+        .search-box,
+        .directions-box {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .weather-box {
+            float: right;
+        }
+        .weather-box,
+        .forecast-box {
+            width: 49%;
+            height: 14rem;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        #forecast {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .directions-box {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .directions-box .boxTitle {
+            width: 100%;
+            margin-bottom: 19px;
+        }
+
+        .directions-box button {
+            width: 120px;
+            padding: 8px;
+            background: #002d72;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .directions-box button:hover {
+            background: #ff5910;
+        }
+
+        .search-box input {
+            padding: 5px;
+            width: 80%;
+        }
+
+        .search-box button {
+            padding: 6px 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
+
     <header>
         <div class="logo">
-            <img src="#" alt="로고">
-        </div>     
+            <img src="./image/home/logo.png" alt="로고">
+        </div>
         <nav>
             <div>TOUR</div>
             <div>FOOD</div>
@@ -27,5 +239,149 @@
             </div>
         </div>
     </header>
+
+    <section class="section">
+        <div id="container">
+
+            <div class="weather-container">
+                <div class="weather-box">
+                    <h2 class="boxTitle">현재날씨</h2>
+                    <p id="weather">Loading...</p>
+                </div>
+
+                <div class="forecast-box">
+                    <h2 class="boxTitle">일기예보</h2>
+                    <ul id="forecast">Loading...</ul>
+                </div>
+            </div>
+
+
+            <div class="directions-box">
+                <h2 class="boxTitle">길찾기</h2>
+                <button onclick="openDirections('해운대해수욕장')">해운대<br>해수욕장</button>
+                <button onclick="openDirections('송정해수욕장')">송정<br>해수욕장</button>
+                <button onclick="openDirections('동백섬')">동백섬</button>
+                <button onclick="openDirections('달맞이길')">달맞이길</button>
+                <button onclick="openDirections('더베이101')">더베이<br>101</button>
+                <button onclick="openDirections('센텀시티')">센텀시티</button>
+                <button onclick="openDirections('해운대전통시장')">해운대<br>전통시장</button>
+                <button onclick="openDirections('블루라인파크')">블루라인<br>파크</button>
+            </div>
+
+            <div class="search-box">
+                <h2 class="boxTitle">주변 검색</h2>
+                <p>근처의 맛집, 카페, 편의시설을 검색하세요.</p>
+                <input type="text" id="searchQuery" placeholder="예: 카페, 맛집, 편의점">
+                <button id="searchBtn">검색</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const weatherApiKey = 'a64a5c4f491cc98941022c90285932bc';
+        const city = 'Busan';
+
+        function getWeatherIcon(weatherMain, weatherDescription, isDaytime) {
+            const iconMap = {
+                "Clear": isDaytime ? "01d.png" : "01n.png",
+                "Few Clouds": isDaytime ? "02d.png" : "02n.png",
+                "Scattered Clouds": "03d.png",
+                "Broken Clouds": isDaytime ? "04d.png" : "04n.png",
+                "Clouds": "03d.png",
+                "Shower Rain": isDaytime ? "09d.png" : "09n.png",
+                "Rain": isDaytime ? "10d.png" : "10n.png",
+                "Thunderstorm": isDaytime ? "11d.png" : "11n.png",
+                "Snow": isDaytime ? "13d.png" : "13n.png",
+                "Mist": isDaytime ? "50d.png" : "50n.png"
+            };
+
+            return iconMap[weatherMain] || "01d.png";
+        }
+
+        function fetchWeather() {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric&lang=kr`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("API 응답 (현재 날씨):", data);
+
+                    const weatherMain = data.weather[0].main;
+                    const weatherDescription = data.weather[0].description;
+                    const temperature = data.main.temp;
+                    const cloudiness = data.clouds.all;
+                    const currentHour = new Date().getHours();
+                    const isDaytime = currentHour >= 6 && currentHour < 18;
+                    const iconFileName = getWeatherIcon(weatherMain, weatherDescription, isDaytime);
+                    const iconPath = `./image/info/${iconFileName}`;
+
+                    console.log("이미지 경로:", iconPath);
+
+                    document.getElementById('weather').innerHTML = `
+                <img src="${iconPath}" alt="날씨 아이콘" style="width:9rem; height:auto; vertical-align:middle;">
+                <br>${weatherDescription}<br>온도: ${temperature}°C<br>강수 확률: ${cloudiness}%
+            `;
+                })
+                .catch(error => {
+                    console.error("날씨 API 호출 실패:", error);
+                    document.getElementById('weather').innerText = '날씨 정보 불러오기 실패';
+                });
+        }
+
+        function fetchForecast() {
+            const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${weatherApiKey}&units=metric&lang=kr`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("API 응답 (날씨 예보):", data);
+                    const forecasts = data.list
+                        .filter((_, index) => index % 8 == 0)
+                        .slice(0, 4)
+                        .map(entry => {
+                            const date = new Date(entry.dt * 1000);
+                            const formattedDate = date.toLocaleDateString('ko-KR');
+                            const hour = date.getHours();
+                            const isDaytime = hour >= 6 && hour < 18;
+                            const forecastMain = entry.weather[0].main;
+                            const forecastDescription = entry.weather[0].description;
+                            const forecastIconFileName = getWeatherIcon(forecastMain, forecastDescription, isDaytime);
+                            const forecastIconPath = `/image/info/${forecastIconFileName}`;
+
+                            console.log("예보 날짜:", formattedDate, "아이콘 경로:", forecastIconPath);  // 디버깅 로그
+
+                            return `<li>
+                            <img src="${forecastIconPath}" alt="예보 아이콘" style="width:30px; height:30px; vertical-align:middle;">
+                            ${formattedDate}: ${forecastDescription}, 온도: ${entry.main.temp}°C
+                        </li>`;
+                        })
+                        .join('');
+
+                    document.getElementById('forecast').innerHTML = forecasts;
+                })
+                .catch(error => {
+                    console.error("예보 API 호출 실패:", error);
+                    document.getElementById('forecast').innerHTML = '날씨 예보 불러오기 실패';
+                });
+        }
+
+        window.onload = () => {
+            fetchWeather();
+            fetchForecast();
+        };
+        function openDirections(place) {
+            window.open(`https://map.kakao.com/?q=${place}`, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchWeather();
+            fetchForecast();
+            document.getElementById('searchBtn').addEventListener('click', () => {
+                const query = document.getElementById('searchQuery').value.trim();
+                if (query) window.open(`https://map.kakao.com/?q=${query}`, '_blank');
+            });
+        });
+    </script>
+
 </body>
+
 </html>
