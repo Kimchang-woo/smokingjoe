@@ -22,11 +22,9 @@
             padding: 0;
             overflow-x: hidden;
             width: 100vw;
-
-            /* overflow -x hidden으로 변경함 */
-
         }
 
+        /* 헤더 스타일 */
         header {
             display: flex;
             width: 100%;
@@ -35,7 +33,6 @@
             align-items: center;
             background-color: #002d72;
             padding: 0 2rem;
-            /* 좌우 패딩 추가함 */
         }
 
         .logo {
@@ -48,7 +45,6 @@
 
         .logo img {
             width: 80%;
-            /* 일단 수정함 */
             height: auto;
             object-fit: contain;
         }
@@ -95,7 +91,6 @@
             border: 0.2rem solid #ff5910;
             border-radius: 10%;
             opacity: 0;
-            ;
             transition: 0.5s;
         }
 
@@ -112,34 +107,73 @@
             margin-right: 0.2rem;
         }
 
+        /* 섹션 레이아웃 */
         .section {
-            width: 100%;
-            height: 2000px;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%
         }
 
         #container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .여기에뭐넣을꺼임 {
+            width: 100%;
+            height: 100px;
         }
 
         .boxTitle {
-            display: block
+            display: block;
         }
 
+        /********** 첫 번째 줄 ***********/
         .weather-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 20px;
+            width: 96%;
+            margin-bottom: 20px;
+            border: 2px solid blue;
+            margin-bottom: 50px;
         }
 
+        /********** 두 번째 줄 **********/
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 96%;
+            margin-bottom: 20px;
+            border: 2px solid gold;
+        }
+
+        /*********** 세 번째 줄 ***********/
+        .directions-box {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 90%;
+        }
+
+        /* 날씨 아이콘 */
         .weather-icon {
-            width: 9rem;
+            width: 5rem;
             height: auto;
+            margin-left: auto;
         }
 
+        /* 날씨 텍스트 */
         .weather-text {
             font-size: 1.2rem;
             line-height: 1.5;
@@ -149,18 +183,27 @@
         .forecast-box,
         .search-box,
         .directions-box {
-            margin-top: 20px;
+            text-align: center;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .weather-box,
+        .forecast-box {
+            width: 48%;
+            height: 14rem;
             padding: 10px;
             border: 1px solid #ccc;
             background-color: #f9f9f9;
+            box-sizing: border-box;
         }
-        .weather-box {
-            float: right;
-        }
-        .weather-box,
-        .forecast-box {
-            width: 49%;
-            height: 14rem;
+
+        .search-box {
+            width: 48%;
+            height: 12rem;
             padding: 10px;
             border: 1px solid #ccc;
             background-color: #f9f9f9;
@@ -171,6 +214,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            margin: 0;
         }
 
         .directions-box {
@@ -178,17 +222,19 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 20px;
-            padding: 10px;
+            padding: 20px;
+            margin-top: 40px;
         }
 
-        .directions-box .boxTitle {
-            width: 100%;
+        .directions-box {
+            width: 91%;
             margin-bottom: 19px;
         }
 
         .directions-box button {
-            width: 120px;
-            padding: 8px;
+            width: 100px;
+            height: 60px;
+            padding: 10px;
             background: #002d72;
             color: white;
             border: none;
@@ -204,7 +250,7 @@
 
         .search-box input {
             padding: 5px;
-            width: 80%;
+            width: 50%;
         }
 
         .search-box button {
@@ -239,14 +285,17 @@
             </div>
         </div>
     </header>
-
+    <!-- 섹션시작임 -->
     <section class="section">
         <div id="container">
-
+            <div class="여기에뭐넣을꺼임">여기에 무언가 넣을꺼임. 사진이라던지</div>
             <div class="weather-container">
                 <div class="weather-box">
                     <h2 class="boxTitle">현재날씨</h2>
-                    <p id="weather">Loading...</p>
+                    <div class="weather-content">
+                        <img id="weather-icon" class="weather-icon" src="" alt="날씨 아이콘">
+                        <div id="weather-text" class="weather-text"></div>
+                    </div>
                 </div>
 
                 <div class="forecast-box">
@@ -254,7 +303,21 @@
                     <ul id="forecast">Loading...</ul>
                 </div>
             </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <h2 class="boxTitle">주변 검색</h2>
+                    <p>근처의 맛집, 카페, 편의시설을 검색하세요.</p>
+                    <input type="text" id="searchQuery" placeholder="예: 카페, 맛집, 편의점">
+                    <button id="searchBtn">검색</button>
+                </div>
+                <div class="search-box">
+                    <h2 class="boxTitle">주변 주차장 검색</h2>
+                    <p>근처의 주차장을 찾아보세요.</p>
+                    <input type="text" id="parkingQuery" placeholder="예: 해운대 해수욕장">
+                    <button id="parkingBtn">검색</button>
+                </div>
 
+            </div>
 
             <div class="directions-box">
                 <h2 class="boxTitle">길찾기</h2>
@@ -268,14 +331,9 @@
                 <button onclick="openDirections('블루라인파크')">블루라인<br>파크</button>
             </div>
 
-            <div class="search-box">
-                <h2 class="boxTitle">주변 검색</h2>
-                <p>근처의 맛집, 카페, 편의시설을 검색하세요.</p>
-                <input type="text" id="searchQuery" placeholder="예: 카페, 맛집, 편의점">
-                <button id="searchBtn">검색</button>
-            </div>
         </div>
     </section>
+
 
     <script>
         const weatherApiKey = 'a64a5c4f491cc98941022c90285932bc';
@@ -316,14 +374,14 @@
 
                     console.log("이미지 경로:", iconPath);
 
-                    document.getElementById('weather').innerHTML = `
-                <img src="${iconPath}" alt="날씨 아이콘" style="width:9rem; height:auto; vertical-align:middle;">
-                <br>${weatherDescription}<br>온도: ${temperature}°C<br>강수 확률: ${cloudiness}%
-            `;
+                    // 아이콘 및 텍스트 업데이트
+                    document.getElementById('weather-icon').src = iconPath;
+                    document.getElementById('weather-text').innerHTML =
+                        `"${weatherDescription}" [ 🌡️: ${temperature}°C / 💦: ${cloudiness}% ]`;
                 })
                 .catch(error => {
                     console.error("날씨 API 호출 실패:", error);
-                    document.getElementById('weather').innerText = '날씨 정보 불러오기 실패';
+                    document.getElementById('weather-text').innerText = '날씨 정보 불러오기 실패';
                 });
         }
 
@@ -334,25 +392,26 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log("API 응답 (날씨 예보):", data);
+
                     const forecasts = data.list
                         .filter((_, index) => index % 8 == 0)
                         .slice(0, 4)
                         .map(entry => {
                             const date = new Date(entry.dt * 1000);
                             const formattedDate = date.toLocaleDateString('ko-KR');
-                            const hour = date.getHours();
-                            const isDaytime = hour >= 6 && hour < 18;
+                            const isDaytime = date.getHours() >= 6 && date.getHours() < 18;
                             const forecastMain = entry.weather[0].main;
                             const forecastDescription = entry.weather[0].description;
+                            const cloudiness = entry.clouds.all;
                             const forecastIconFileName = getWeatherIcon(forecastMain, forecastDescription, isDaytime);
-                            const forecastIconPath = `/image/info/${forecastIconFileName}`;
+                            const forecastIconPath = `./image/info/${forecastIconFileName}`;
 
-                            console.log("예보 날짜:", formattedDate, "아이콘 경로:", forecastIconPath);  // 디버깅 로그
+                            console.log("예보 날짜:", formattedDate, "아이콘 경로:", forecastIconPath);
 
                             return `<li>
-                            <img src="${forecastIconPath}" alt="예보 아이콘" style="width:30px; height:30px; vertical-align:middle;">
-                            ${formattedDate}: ${forecastDescription}, 온도: ${entry.main.temp}°C
-                        </li>`;
+                        <img src="${forecastIconPath}" alt="예보 아이콘" style="width:30px; height:30px; vertical-align:middle;">
+                        ${formattedDate} "${forecastDescription}" [🌡️ : ${entry.main.temp}°C / 💦 : ${cloudiness}% ]
+                    </li>`;
                         })
                         .join('');
 
@@ -363,23 +422,25 @@
                     document.getElementById('forecast').innerHTML = '날씨 예보 불러오기 실패';
                 });
         }
+        fetchWeather();
+        fetchForecast();
 
-        window.onload = () => {
-            fetchWeather();
-            fetchForecast();
-        };
         function openDirections(place) {
             window.open(`https://map.kakao.com/?q=${place}`, '_blank');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            fetchWeather();
-            fetchForecast();
+
             document.getElementById('searchBtn').addEventListener('click', () => {
                 const query = document.getElementById('searchQuery').value.trim();
                 if (query) window.open(`https://map.kakao.com/?q=${query}`, '_blank');
             });
         });
+
+
+
+
+
     </script>
 
 </body>
