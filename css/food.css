@@ -24,8 +24,342 @@ padding: 0.5rem; border: 0.2rem solid #ff5910; border-radius: 10%; opacity: 0;;
 transition: 0.5s;}
 .subnat{display: flex; justify-content: start; align-items: center;}
 .naticonsub img {width: 3rem; height: 2rem; padding: 0.2rem; margin-right: 0.2rem;}
-h2{ text-align: center;}
-#sijang{ overflow-x: hidden; text-align: center;}
+
+.jang{ width: 100vw; height: 50rem; margin-bottom: 30rem; position: relative; object-fit: cover;}
+
+.jang img{ width: 100%; height: 100%; object-fit: cover;}
+
+.jangfood{ position: absolute; top: 65%; left: 22%; transform: translate(-50%,-50%);
+font-size: 1.7rem; color: #ffffff; font-weight: bold; text-shadow: 2px 2px 4px rgba(255,255,255,0.8);}
+
+.jangfood > p {font-size: 2.1rem;}
+
+.jang2{ width: 100vw; height: 50rem; margin-bottom: 100px; display: flex; flex-direction: column; 
+justify-content: space-around; margin-bottom: 30rem;}
+
+.sijangsec{width: 100%; height: 35rem; display: flex; justify-content: center;}
+
+.sijangsec > div:nth-child(1){
+    width: 30%;height: 100%; background-color: #002d72; font-size: 1.7rem; color: #ffffff; font-weight: bold;
+    display: flex; flex-direction: column; justify-content: center; position: relative;
+}
+
+.sijangsec > div:nth-child(1) > div:nth-child(1){
+    margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    margin-left: 2rem;
+}
+
+.txt > p{margin-left: 1rem; margin-bottom: 1rem; font-size: 1rem;}
+
+.sijjang{
+    width: 100vw; height: 30rem;
+}
+
+.sijangsec > div:nth-child(2){
+    width: 50%;height: 100%;background-color: #002d72;
+}
+
+.sijangsec > div:nth-child(2) > img {
+    width: 100%; height: 100%; object-fit: cover; margin-bottom: 30rem; position: relative;
+}
+
+.secsijang{
+    width: 100%;height: 30%;display: flex; justify-content: space-evenly;
+}
+.secsijang > div {
+    width: 20%; height: 100%; background-color: #002d72;
+}
+.secsijang > div > img{
+    width: 100%; height: 100%;
+}
+.bin{
+    width: 100vw; height: 50rem; margin-bottom: 100px; display: flex; flex-direction: column;
+    justify-content: space-around; margin-bottom: 30rem;
+}
+.coff{
+    width: 100%; height: 60%; display: flex; justify-content: center;
+}
+.coff > div:nth-child(2){
+    width: 30%;height: 100%;background-color: #002d72;
+    font-size: 1.7rem; color: #ffffff; font-weight: bold;
+    display: flex;flex-direction: column;justify-content: center;
+    position: relative;
+}
+.coff > div:nth-child(2) > div:nth-child(1){
+    font-size: 1.5rem;
+    margin-bottom:1rem;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    margin-left: 2rem;
+}
+.txt2 > p{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.coff > div:nth-child(1){
+    width: 50%;
+    height: 100%; background-color: #002d72;
+}
+.coff > div:nth-child(1) > img{
+    width: 100%;
+    height: 100%;
+}
+.cofsec{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cofsec > div{
+    width: 20%;
+    height: 100%;
+    background-color: #002d72;
+}
+.cofsec > div > img{
+    width: 100%;
+    height: 100%;
+}
+/*bin end*/
+.bin2{
+    width: 100vw; height: 50rem; margin-bottom: 100px; display: flex; flex-direction: column;
+    justify-content: space-around; margin-bottom: 30rem;
+}
+.coff2{
+    width: 100%; height: 60%; display: flex; justify-content: center;
+}
+.coff2 > div:nth-child(2){
+    width: 30%;height: 100%;background-color: #002d72;
+    font-size: 1.7rem; color: #ffffff; font-weight: bold;
+    display: flex;flex-direction: column;justify-content: center;
+    position: relative;
+}
+.coff2 > div:nth-child(2) > div:nth-child(1){
+    font-size: 1.5rem;
+    margin-bottom:1rem;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    margin-left: 2rem;
+}
+.txt3 > p{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.coff2 > div:nth-child(1){
+    width: 50%;
+    height: 100%; background-color: #002d72;
+}
+.coff2 > div:nth-child(1) > img{
+    width: 100%;
+    height: 100%;
+}
+.cofsec2{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cofsec2 > div{
+    width: 20%;
+    height: 100%;
+    background-color: #002d72;
+}
+.cofsec2 > div > img{
+    width: 100%;
+    height: 100%;
+}
+/*bin2 end*/
+.bin3{
+    width: 100vw; height: 50rem; margin-bottom: 100px; display: flex; flex-direction: column;
+    justify-content: space-around; margin-bottom: 30rem;
+}
+.coff3{
+    width: 100%; height: 60%; display: flex; justify-content: center;
+}
+.coff3 > div:nth-child(2){
+    width: 30%;height: 100%;background-color: #002d72;
+    font-size: 1.7rem; color: #ffffff; font-weight: bold;
+    display: flex;flex-direction: column;justify-content: center;
+    position: relative;
+}
+.coff3 > div:nth-child(2) > div:nth-child(1){
+    font-size: 1.5rem;
+    margin-bottom:1rem;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    margin-left: 2rem;
+}
+.txt4 > p{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.coff3 > div:nth-child(1){
+    width: 50%;
+    height: 100%; background-color: #002d72;
+}
+.coff3 > div:nth-child(1) > img{
+    width: 100%;
+    height: 100%;
+}
+.cofsec3{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cofsec3 > div{
+    width: 20%;
+    height: 100%;
+    background-color: #002d72;
+}
+.cofsec3 > div > img{
+    width: 100%;
+    height: 100%;
+}
+/*bin3 end*/
+.sasimi{
+    width: 100vw; height: 50rem; margin-bottom: 100px; display: flex; flex-direction: column;
+    justify-content: space-around; margin-bottom: 30rem;
+}
+.rma {
+    width: 100%; height: 60%; display: flex; justify-content: center;
+}
+.rma > div:nth-child(2){
+    width: 30%;height: 100%;background-color: #002d72;
+    font-size: 1.7rem; color: #ffffff; font-weight: bold;
+    display: flex;flex-direction: column;justify-content: center;
+    position: relative;
+}
+.rma > div:nth-child(2) > div:nth-child(1){
+    font-size: 1.5rem;
+    margin-bottom:1rem;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    margin-left: 2rem;
+}
+.txt5 > p{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.rma > div:nth-child(1){
+    width: 50%;
+    height: 100%; background-color: #002d72;
+}
+.rma > div:nth-child(1) > img{
+    width: 100%;
+    height: 100%;
+}
+.cofsec4{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cofsec4 > div{
+    width: 20%;
+    height: 100%;
+    background-color: #002d72;
+}
+.cofsec4 > div > img{
+    width: 100%;
+    height: 100%;
+}
+/*sasimi*/
+.rnrqkq{
+    width: 100vw; height: 50rem; margin-bottom: 100px; display: flex; flex-direction: column;
+    justify-content: space-around; margin-bottom: 30rem;
+}
+.dml {
+    width: 100%; height: 60%; display: flex; justify-content: center;
+}
+.dml > div:nth-child(2){
+    width: 30%;height: 100%;background-color: #002d72;
+    font-size: 1.7rem; color: #ffffff; font-weight: bold;
+    display: flex;flex-direction: column;justify-content: center;
+    position: relative;
+}
+.dml > div:nth-child(2) > div:nth-child(1){
+    font-size: 1.5rem;
+    margin-bottom:1rem;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    margin-left: 2rem;
+}
+.txt6 > p{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.dml > div:nth-child(1){
+    width: 50%;
+    height: 100%; background-color: #002d72;
+}
+.dml > div:nth-child(1) > img{
+    width: 100%;
+    height: 100%;
+}
+.cofsec5{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cofsec5 > div{
+    width: 20%;
+    height: 100%;
+    background-color: #002d72;
+}
+.cofsec5 > div > img{
+    width: 100%;
+    height: 100%;
+}
+/*dml end*/
+.alvh{
+    width: 100vw; height: 50rem; margin-bottom: 100px; display: flex; flex-direction: column;
+    justify-content: space-around; margin-bottom: 30rem;
+}
+.al {
+    width: 100%; height: 60%; display: flex; justify-content: center;
+}
+.al > div:nth-child(2){
+    width: 30%;height: 100%;background-color: #002d72;
+    font-size: 1.7rem; color: #ffffff; font-weight: bold;
+    display: flex;flex-direction: column;justify-content: center;
+    position: relative;
+}
+.al > div:nth-child(2) > div:nth-child(1){
+    font-size: 1.5rem;
+    margin-bottom:1rem;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    margin-left: 2rem;
+}
+.txt7 > p{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.al > div:nth-child(1){
+    width: 50%;
+    height: 100%; background-color: #002d72;
+}
+.al > div:nth-child(1) > img{
+    width: 100%;
+    height: 100%;
+}
+.cofsec6{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cofsec6 > div{
+    width: 20%;
+    height: 100%;
+    background-color: #002d72;
+}
+.cofsec6 > div > img{
+    width: 100%;
+    height: 100%;
+}
+
 
 
 
