@@ -108,4 +108,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     window.addEventListener('scroll', scrollAnimation)
     scrollAnimation()
+
+    //top버튼
+    const topBtn = document.querySelector("#topBtn")
+
+    window.addEventListener('scroll', function(){
+        if(window.scrollY >500){
+            topBtn.style.opacity = 1;
+            topBtn.style.visibility ="visible"
+        }else{
+            topBtn.style.opacity = 0;
+            topBtn.style.visibility ="hidden"
+        }
+    })
+    topBtn.addEventListener('click',function(){
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    })
 })
