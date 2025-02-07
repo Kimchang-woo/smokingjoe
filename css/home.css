@@ -27,23 +27,24 @@ padding: 0.5rem; border: 0.2rem solid #ff5910; border-radius: 10%; opacity: 0;;
 transition: 0.5s;}
 .subnat{display: flex; justify-content: start; align-items: center;}
 .naticonsub img {width: 3rem; height: 2rem; padding: 0.2rem; margin-right: 0.2rem;}
-.sec1{margin:5rem auto; width: 100vw; height:45rem; border: 1px solid blue;
-display: flex; justify-content: center; align-items: center;}
-#slides{width: 75%; height: 90%; background-image: url(../image/home/mainimage1.jpg);
-background-size: cover; background-repeat: no-repeat; background-position: center;}
+.sec1{margin:3rem auto; width: 100vw; height:54rem; 
+display: flex; flex-direction: column; justify-content: center; align-items: center;}
+#slides{width: 90%; height: 100%; background-image: url(../image/home/mainimage1.jpg);
+background-size: cover; background-repeat: no-repeat; background-position: center;
+}
 .arr {
-    position: absolute;
-    top: 50%;
-    width: 3rem; 
-    height: 6rem; 
-    background-color: #002d72;
+    width: 2rem; 
+    height: 3rem; 
+    background-color: #ffffff;
     clip-path: polygon(20% 0%, 100% 50%, 20% 100%, 0% 80%, 50% 50%, 0% 20%);
     cursor: pointer;
 }
+.btns{display: flex;  justify-content: space-between; align-items: center;
+padding: 0.5rem 2rem ; width: 87%; background-color: #002d72;}
 #leftBtn {left: 8rem; transform: rotate(180deg);}
 #rightBtn {right: 7rem;}
 #circles{width: 18rem; height: 3rem; margin: 1rem auto;
-display: flex; justify-content: space-evenly; align-items: center;}
+display: flex; justify-content: space-between; align-items: center;}
 #circle{width: 4rem; height: 0.5rem; background-color: #ffffff;
 border-radius: 10%;}
 #circle.on{background-color: #ff5910;}
@@ -54,29 +55,42 @@ margin-top: 18rem; background-color: #002d72; color: #ffffff; height: 19rem;}
 .sloganupText h2 {font-size: 25px; font-weight: bold;}
 
 .slogan{margin: 10rem auto; width: 40%; height: 30rem; position: relative;
-display: flex; justify-content: start; border: 10px solid rgba(0,45,114,0.8);
+display: flex; justify-content: start; border: 4px solid rgba(0,45,114,0.5);
 background-image: url(../image/home/sloganimage.png); background-position: center;
-background-repeat: no-repeat; background-size: cover;}
-.slogan img {width: 300px; height: 100px; position: relative; top: 3rem; left: 27rem;}
+background-repeat: no-repeat; background-size: cover; border-radius: 20px 20px 10px 10px;}
+.slogan img {width: 300px; height: 100px; position: relative; top: 3rem; left: 27rem;
+opacity: 0; transition: opacity 2s ease-out;}
 
-.fesSec{margin:22rem auto; width:100vw;height: 30rem;
+.fesSec{margin:22rem auto; width:100vw;height: 40rem; background-color: #002d72;
 display: flex; flex-direction: column; justify-content: center; align-items: center;}
-.fesSec h1{font-size: 50px; color: #002d72; font-weight: bold;}
+.fesSec h1{font-size: 50px; color: #ffffff; font-weight: bold; padding-bottom: 2rem;}
 .fesoutBox{display: flex;justify-content: space-between; align-items: center; width: 90%;}
 .fesinBox{display: flex; margin: 1rem; width: 75%; height: 18rem; border: 3px solid rgba(3,3,3,0.3); 
-   justify-content: center; align-items: center; border-radius: 1rem;}
+   justify-content: center; align-items: center; border-radius: 1rem; background-color: #ffffff;}
 .fesinBox > div {margin: 1rem; display: flex;flex-direction: column; justify-content: center;
 line-height: 1rem; color: #002d72;}
 .fesinBox > img {width: 12rem; height: 15rem; border-radius: 20px; padding: 0.5rem;}  
 
 .sec2outBox{margin: 18rem auto 6rem; width: 100%; height: 100rem; border: 1px solid red;
 display: flex; flex-direction: column; justify-content: center; align-items: center;}
-.sec2inBox{width: 100vw; height: 33%; display: flex; justify-content: center;}
-.sec2inBox > .textBox{border: 1px solid red; width: 25%;margin: 1rem;
-display: flex; flex-direction: column; justify-content: center; align-items: center;}
-.textBox h1{font-size: 50px; color: #002d72; font-weight: bold;}
-.sec2inBox > .imageBox{border: 1px solid blue; width: 45%; margin: 1rem;}
-.sec2 img{width: 100%; height: 100%;}
+.sec2inBox{width: 60%; height: 33%; display: flex; justify-content: space-between; align-items: center;}
+.sec2inBox > .textBox{border: 1px solid red; width: 23rem;margin: 1rem; height: 22rem;
+display: flex; flex-direction: column; justify-content: center; align-items: center;
+border: 15px solid rgba(0,45,114,0.7); line-height: 1.5rem; border-radius: 0.5rem;}
+.sec2inBox > .textBox > h1{opacity: 0; transform: translateX(-100px); 
+    transition: opacity 2s ease-out, transform 2s ease-out; font-size: 50px;}
+.food .textBox h1{opacity: 0; transform: translateX(100px);} 
+.textBox div{opacity: 0; transition: opacity 4s ease-out;}
+.textBox button{opacity: 0; transition: opacity 4s ease-out; margin-top: 1rem;
+background-color: #002d72; color: #ffffff; padding: 0.5rem 1.5rem; border-radius: 10px;
+font-weight: bold;}
+.textBox h1{font-size: 50px; color: #002d72; font-weight: bold; }
+.sec2inBox > .imageBox{border: 1px solid blue; width:50rem; margin: 1rem;
+    border: 3px solid rgba(0,45,114,0.7); height: 30rem; border-radius: 1.2rem;}
+.sec2 img{width: 100%; height: 100%; border-radius: 1rem;}
+.textBox div{ color: rgba(3,3,3,0.8); font-weight: bold;}
+
+
 footer{margin: 3rem auto 0; width: 95vw; height: 8rem; border: 1px solid pink;
 background-color: #000000; display: flex; justify-content: space-between; align-items: center;
 padding: 1rem 3rem; color: rgba(255,255,255,0.8);}
