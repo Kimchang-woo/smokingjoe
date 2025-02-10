@@ -171,9 +171,6 @@
             margin-bottom: 50px;
         }
 
-        /********** 두 번째 줄 **********/
-
-
         /*********** 세 번째 줄 ***********/
         .directions-box {
             display: flex;
@@ -220,14 +217,6 @@
             box-sizing: border-box;
         }
 
-        .search-box {
-            width: 48%;
-            height: 12rem;
-            padding: 10px;
-            border: none;
-            background-color: #f9f9f9;
-            box-sizing: border-box;
-        }
 
         #forecast {
             list-style: none;
@@ -529,7 +518,7 @@
             }
 
             var mapOption = {
-                center: new kakao.maps.LatLng(center["해운대해수욕장"].lat, center["해운대해수욕장"].lng), // 기본 중심 (해운대 해수욕장)
+                center: new kakao.maps.LatLng(center["해운대해수욕장"].lat, center["해운대해수욕장"].lng), // 기본 중심 
                 level: 4
             };
 
@@ -540,14 +529,14 @@
             });
 
             infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-            infowindow.setContent(`<div style="padding:5px; font-size:14px; text-align: center;">해운대해수욕장</div>`);
+            infowindow.setContent(`<div style=" display: table-cell; vertical-align: middle; padding:10px; padding-left: 24px; font-size:16px; text-align: center; width: 100px;">해운대해수욕장</div>`);
             infowindow.open(map, marker);
 
             //  기본적으로 교통정보 추가
             map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
             trafficLayerOn = true;
 
-            // 지도가 보이는 시점에 relayout 적용
+            // 지도가 보이는 시점에 relayout 적용 시간차 줘야함
             setTimeout(() => {
                 console.log("map.relayout() 실행");
                 map.relayout();
@@ -572,7 +561,7 @@
                 map: map
             });
 
-            infowindow.setContent(`<div style="padding:5px; font-size:14px; text-align: center;">${place}</div>`);
+            infowindow.setContent(`<div style="display: table-cell; vertical-align: middle; padding: 10px; padding-left: 13px;font-size: 16px; width: 120px; text-align: center;">${place}</div>`);
             infowindow.open(map, marker);
         }
 
