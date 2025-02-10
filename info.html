@@ -157,7 +157,7 @@
             font-size: 1.8rem;
             font-weight: bold;
             letter-spacing: 1px;
-            
+
 
         }
 
@@ -311,9 +311,10 @@
             .forecast-detail1 {
                 display: none;
             }
+
             .forecast-detail2 {
                 display: none;
-            
+
             }
 
         }
@@ -323,11 +324,61 @@
                 display: none;
                 font-size: 1rem;
             }
+
             .forecast-detail3 {
                 font-size: 13px;
             }
 
         }
+
+        footer {
+            margin: 3rem auto 0;
+            margin-top: 0;
+            width: 96vw;
+            height: 8rem;
+            background-color: #000000;
+            padding: 1rem 3rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer>div {
+            line-height: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 93%;
+        }
+
+        /* footer */
+
+
+        #topBtn {
+            position: fixed;
+            top: 88%;
+            right: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgba(3, 3, 3, 0.8);
+            border-radius: 1rem;
+            border: 0.2rem solid black;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        #topBtn:hover {
+            font-size: 20px;
+            background-color: rgba(0, 45, 114, 1);
+            color: #ffffff;
+            border: 0.2rem solid #ff5910;
+        }
+
+        /* topBtn */
     </style>
 </head>
 
@@ -397,11 +448,28 @@
                 <button id="navbtn" onclick="searchPlace('해운대전통시장')">해운대<br>전통시장</button>
                 <button id="navbtn" onclick="searchPlace('블루라인파크')">블루<br>라인파크</button>
             </div>
-
-
-
         </div>
     </section>
+    <footer>
+        <div>
+            <img src="./image/home/haeundaelogo.png" alt="">
+            <p>웹사이트 교육용 홈페이지 입니다.</p>
+            <div>
+                <p>팀장: 김창우</p>
+                <p>부팀장: 박지훈</p>
+                <p>팀원: 장국현</p>
+                <p>팀원: 이성현</p>
+                <p>팀원: 김정헌</p>
+            </div>
+        </div>
+
+    </footer>
+    <!-- footer end -->
+    <div id="topBtn">
+        TOP▲
+    </div>
+    <!-- top버튼 -->
+    <script src="./js/home.js"></script>
 
 
     <script>
@@ -593,6 +661,25 @@
             });
         });
 
+
+        //top버튼
+        const topBtn = document.querySelector("#topBtn")
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 500) {
+                topBtn.style.opacity = 1;
+                topBtn.style.visibility = "visible"
+            } else {
+                topBtn.style.opacity = 0;
+                topBtn.style.visibility = "hidden"
+            }
+        })
+        topBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        })
     </script>
 
 </body>
