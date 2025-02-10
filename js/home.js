@@ -1,62 +1,97 @@
 document.addEventListener("DOMContentLoaded", () => {
     //슬라이드쇼
-    const slides = document.querySelector("#slides")
-    const leftBtn = document.querySelector("#leftBtn")
-    const rightBtn = document.querySelector("#rightBtn")
-    const circles = document.querySelectorAll("#circles > div")
+    const slidesContainer = document.querySelector("#slides");
+    const leftBtn = document.querySelector("#leftBtn");
+    const rightBtn = document.querySelector("#rightBtn");
+    const circles = document.querySelectorAll("#circles > div");
 
-    const images =[
-        "url(../image/home/mainimage1.jpg)",
-        "url(../image/home/mainimage2.jpg)",
-        "url(../image/home/mainimage3.jpg)",
-        "url(../image/home/mainimage4.jpg)"
-    ]
+    let slides = document.querySelectorAll("#slides div");
+    const totalSlides = slides.length;
 
-    let curIndex = 0;
+    let curIndex = 1; // 가짜 첫 번째 슬라이드에서 시작
     let slideInterval;
+    let isTransitioning = false;
 
-    function updateSlide (index){
-        slides.style.backgroundImage = images[index];
+    // 슬라이드 복제 (앞뒤로 추가)
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[totalSlides - 1].cloneNode(true);
+    
+    slidesContainer.appendChild(firstClone);
+    slidesContainer.insertBefore(lastClone, slides[0]);
 
-        circles.forEach(circle => {circle.classList.remove("on")});
-        circles[index].classList.add('on')
+    slides = document.querySelectorAll("#slides div"); // 다시 슬라이드 목록 가져오기
+    const updatedTotalSlides = slides.length; // 복제된 슬라이드 포함한 총 개수
+
+    slidesContainer.style.transform = `translateX(${-curIndex * 100}vw)`;
+
+    function updateSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        slidesContainer.style.transition = "transform 0.5s ease-in-out";
+        slidesContainer.style.transform = `translateX(${-index * 100}vw)`;
+
+        // 인디케이터 업데이트
+        circles.forEach(circle => circle.classList.remove("on"));
+        circles[(index - 1 + totalSlides) % totalSlides].classList.add("on");
+
+        setTimeout(() => {
+            if (index === 0) {
+                slidesContainer.style.transition = "none";
+                curIndex = totalSlides;
+                slidesContainer.style.transform = `translateX(${-curIndex * 100}vw)`;
+            } else if (index === updatedTotalSlides - 1) {
+                slidesContainer.style.transition = "none";
+                curIndex = 1;
+                slidesContainer.style.transform = `translateX(${-curIndex * 100}vw)`;
+            }
+            isTransitioning = false;
+        }, 500);
     }
 
-    function nextSlide(){
-        curIndex =(curIndex+1) % images.length;
+    function nextSlide() {
+        if (isTransitioning) return;
+        curIndex++;
         updateSlide(curIndex);
     }
 
-    function startAutoSlide(){
-        slideInterval = setInterval(nextSlide,3000)
+    function prevSlide() {
+        if (isTransitioning) return;
+        curIndex--;
+        updateSlide(curIndex);
     }
 
-    function resetAutoSlide (){
+    function startAutoSlide() {
+        slideInterval = setInterval(nextSlide, 3000);
+    }
+
+    function resetAutoSlide() {
         clearInterval(slideInterval);
         startAutoSlide();
     }
 
-    leftBtn.addEventListener('click', function(){
-        curIndex =(curIndex===0) ? images.length-1 : curIndex -1;
-        updateSlide(curIndex);
+    // 버튼 클릭 이벤트
+    leftBtn.addEventListener("click", function () {
+        prevSlide();
         resetAutoSlide();
-    })
+    });
 
-    rightBtn.addEventListener('click', function(){
-        curIndex =(curIndex+1) % images.length;
-        updateSlide(curIndex);
+    rightBtn.addEventListener("click", function () {
+        nextSlide();
         resetAutoSlide();
-    })
+    });
 
-    circles.forEach((circle,index)=>{
-        circle.addEventListener('click', function(){
-            curIndex = index;
+    // 인디케이터 클릭 이벤트
+    circles.forEach((circle, index) => {
+        circle.addEventListener("click", function () {
+            curIndex = index + 1;
             updateSlide(curIndex);
             resetAutoSlide();
-        })
-    })
+        });
+    });
 
+    updateSlide(curIndex);
     startAutoSlide();
+
 
     //스크롤 애니메이션
 
@@ -127,4 +162,121 @@ document.addEventListener("DOMContentLoaded", () => {
             behavior: "smooth"
         });
     })
-})
+
+    //캔버스
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // 캔버스 크기 설정
+    canvas.width = window.innerWidth;
+    canvas.height = 700;
+    
+    // 서핑보드 이미지 로드
+    const surfboardImg = new Image();
+    surfboardImg.src = '/image/home/surfboard.png'; // 절대경로로 수정
+    
+    // 파도 애니메이션 관련 변수
+    let waveAmplitude1 = 50, waveAmplitude2 = 70, waveAmplitude3 = 90; 
+    let waveLength1 = 0.02, waveLength2 = 0.015, waveLength3 = 0.01; 
+    let waveSpeed1 = 0.04, waveSpeed2 = 0.03, waveSpeed3 = 0.02; 
+    let offset1 = 0, offset2 = 0, offset3 = 0; 
+    
+    // 서핑보드 위치 및 흔들림 효과
+    let surfboardRight = {
+        x: canvas.width / 2 +650, 
+        y: canvas.height,
+        width: 200,
+        height: 200,
+        angle: 0, 
+        waveEffect: 0 
+    };
+    let surfboardLeft = {
+        x: canvas.width / 2 -650, 
+        y: canvas.height,
+        width: 200,
+        height: 200,
+        angle: 0, 
+        waveEffect: 0 
+    };
+    
+    function drawWaves() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+        function drawSingleWave(color, amplitude, length, offset, yOffset) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            for (let x = 0; x < canvas.width; x++) {
+                let y = Math.sin(x * length + offset) * amplitude * Math.sin(offset * 0.5) + canvas.height / 2 + yOffset;
+                ctx.lineTo(x, y);
+            }
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.lineTo(0, canvas.height);
+            ctx.closePath();
+            ctx.fill();
+        }
+    
+        drawSingleWave('rgba(0, 50, 200, 0.5)', waveAmplitude3, waveLength3, offset3, 80);
+        drawSingleWave('rgba(0, 100, 255, 0.6)', waveAmplitude2, waveLength2, offset2, 50);
+        drawSingleWave('rgba(0, 150, 255, 0.7)', waveAmplitude1, waveLength1, offset1, 20);
+    }
+    
+    function drawSurfboard(surfboard, flip = false) {
+        let waveY = Math.sin(surfboard.x * waveLength1 + offset1) * waveAmplitude1 + canvas.height / 2;
+        
+        surfboard.y = waveY - surfboard.height/2.8; // 더 적절한 높이 조정
+        
+        // 서핑보드 흔들림 효과 추가
+        surfboard.waveEffect = Math.sin(offset1 * 2) * 5; 
+        let angleInRadians = surfboard.waveEffect * (Math.PI / 180);
+    
+        ctx.save();
+        ctx.translate(surfboard.x + surfboard.width / 2, surfboard.y + surfboard.height / 2);
+        if(flip){ctx.scale(-1,1)}
+        ctx.rotate(angleInRadians);
+        ctx.drawImage(surfboardImg, flip ? -surfboard.width / 2 * -1 : -surfboard.width / 2, -surfboard.height / 2, surfboard.width, surfboard.height);
+        ctx.restore();
+    }
+    
+    function animateWaves() {
+        offset1 += waveSpeed1;
+        offset2 += waveSpeed2;
+        offset3 += waveSpeed3;
+    
+        drawWaves();
+        if (surfboardImg.complete) {
+            drawSurfboard(surfboardRight, false);
+            drawSurfboard(surfboardLeft, true);
+        }
+    
+        requestAnimationFrame(animateWaves);
+    }
+    
+    // 창 크기 변경 시 캔버스 크기 자동 조정
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = 700;
+    });
+    
+    // 이미지가 완전히 로드된 후 애니메이션 실행
+    surfboardImg.onload = function () {
+        console.log("서핑보드 이미지 로드 완료"); // 디버깅
+        animateWaves();
+    };
+    document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+    
+        hamburger.addEventListener("click", () => {
+            navMenu.style.display = navMenu.style.display === "flex" ? "none" : "flex";
+        });
+    
+        // 반응형에서 창 크기 변경 시 네비게이션 초기화
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+                navMenu.style.display = "flex"; // 데스크탑 모드에서는 항상 보이게 설정
+            } else {
+                navMenu.style.display = "none"; // 모바일 모드에서는 햄버거 메뉴로 조작
+            }
+        });
+    });
+});

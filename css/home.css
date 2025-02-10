@@ -7,11 +7,12 @@
 body {
     font-family: 'MyFont' , sans-serif;
     margin: 0; padding: 0; width: 100vw; 
-    box-sizing: border-box;  
+    /* box-sizing: border-box;   */
+    overflow-x: hidden;
 }
 a{text-decoration: none; color: #ffffff;}
 /* 기초작업 */
-header{display: flex; width: 100%; height: 8rem;justify-content: space-between; 
+header{display: flex; width: 100vw; height: 8rem;justify-content: space-between; 
     align-items: center; background-color: #002d72;}
 .logo{width: 7rem; height: 7rem; margin-left: 10rem; display: flex;
 justify-content: center; align-items: center;}
@@ -21,51 +22,61 @@ font-size: 1.8rem; font-weight: bold;}
 .hdicons{width: 12rem;height: 7rem; margin-right: 10rem; color: #ffffff;
 display: flex; justify-content: center; align-items: center;}
 .naticon{background-image: url(../image/home/korea.png); width: 3rem; height: 2rem;
-background-size: cover; background-repeat: no-repeat; background-position: center;}
+background-size: cover; background-repeat: no-repeat; background-position: center;
+z-index: 1;}
 .naticon:hover .naticonsub{opacity: 1;} 
 .naticonsub{position: relative; top: 4rem; right: 1.8rem; background-color: #002d72; width: 5.5rem;
 padding: 0.5rem; border: 0.2rem solid #ff5910; border-radius: 10%; opacity: 0;;
 transition: 0.5s;}
 .subnat{display: flex; justify-content: start; align-items: center;}
 .naticonsub img {width: 3rem; height: 2rem; padding: 0.2rem; margin-right: 0.2rem;}
+.hamburger {display: none; cursor: pointer;font-size: 2rem;color: #ffffff;}
 /* 헤더 */
 
-.sec1{margin:3rem auto; width: 100vw; height:54rem; 
-display: flex; flex-direction: column; justify-content: center; align-items: center;}
-#slides{width: 90%; height: 100%; background-image: url(../image/home/mainimage1.jpg);
-background-size: cover; background-repeat: no-repeat; background-position: center;
+.sec1{margin:auto; width: 100vw; height:52rem; position: relative; z-index: 0; overflow: hidden;
+display: flex; flex-direction: column;}
+#slides{width: calc(100% * 6); height: 100%; display: flex; transition: transform 0.5s ease-in-out;}
+#slides div {
+    width: 100vw; height: 100%;
+    background-size: cover;background-position: center;
+    flex-shrink: 0;
 }
+
 .arr {
     width: 2rem; 
     height: 3rem; 
     background-color: #ffffff;
     clip-path: polygon(20% 0%, 100% 50%, 20% 100%, 0% 80%, 50% 50%, 0% 20%);
     cursor: pointer;
+    flex-shrink: 0;
 }
 .btns{display: flex;  justify-content: space-between; align-items: center;
-padding: 0.5rem 2rem ; width: 87%; background-color: #002d72;}
-#leftBtn {left: 8rem; transform: rotate(180deg);}
-#rightBtn {right: 7rem;}
-#circles{width: 18rem; height: 3rem; margin: 1rem auto;
-display: flex; justify-content: space-between; align-items: center;}
-#circle{width: 4rem; height: 0.5rem; background-color: #ffffff;
-border-radius: 10%;}
-#circle.on{background-color: #ff5910;}
+padding: 0.5rem 2rem ; width: 100vw; height: 5.2rem; background-color: #002d72;
+position: relative;}
+#leftBtn {position: relative; left: 2rem; transform: rotate(180deg);}
+#rightBtn {position: relative; right: 5rem;}
+#circles{width: 18rem; height: 3rem; margin: 1rem auto; flex-grow: 1;
+display: flex; justify-content: center; align-items: center;}
+.circle{width: 4rem; height: 0.5rem; background-color: #ffffff;
+border-radius: 10%; margin: 0 0.5rem; cursor: pointer;}
+.circle.on{background-color: #ff5910;}
 /* 섹션1(슬라이드) */
 
+canvas{width: 100vw; height: 46rem; }
 .sloganupText{display: flex; flex-direction: column; justify-content: center; align-items: center;
 margin-top: 18rem; background-color: #002d72; color: #ffffff; height: 19rem;}
 .sloganupText h1 {font-size: 45px; font-weight: bold;}
 .sloganupText h2 {font-size: 25px; font-weight: bold;}
-.slogan{margin: 10rem auto; width: 40%; height: 30rem; position: relative;
+.slogan{margin: 10rem auto; width: 40%; height: 30rem; position: relative; z-index: 1;
+    position: relative; top: -48rem;
 display: flex; justify-content: start; border: 4px solid rgba(0,45,114,0.5);
 background-image: url(../image/home/sloganimage.png); background-position: center;
 background-repeat: no-repeat; background-size: cover; border-radius: 20px 20px 10px 10px;}
 .slogan img {width: 300px; height: 100px; position: relative; top: 3rem; left: 27rem;
 opacity: 0; transition: opacity 2s ease-out;}
-/* 슬로건 */
+/* 슬로건& 캔버스 */
 
-.fesSec{margin:22rem auto; width:100vw;height: 40rem; background-color: #002d72;
+.fesSec{margin:-30rem auto; width:100vw;height: 40rem; background-color: #002d72; 
 display: flex; flex-direction: column; justify-content: center; align-items: center;}
 .fesSec h1{font-size: 50px; color: #ffffff; font-weight: bold; padding-bottom: 2rem;}
 .fesoutBox{display: flex;justify-content: space-between; align-items: center; width: 90%;}
@@ -76,10 +87,10 @@ line-height: 1rem; color: #002d72;}
 .fesinBox > img {width: 12rem; height: 15rem; border-radius: 20px; padding: 0.5rem;}  
 /* 페스티벌 */
 
-.sec2outBox{margin: 18rem auto 6rem; width: 100%; height: 100rem; border: 1px solid red;
+.sec2outBox{margin: 50rem auto 6rem; width: 100%; height: 100rem; 
 display: flex; flex-direction: column; justify-content: center; align-items: center;}
 .sec2inBox{width: 60%; height: 33%; display: flex; justify-content: space-between; align-items: center;}
-.sec2inBox > .textBox{border: 1px solid red; width: 23rem;margin: 1rem; height: 22rem;
+.sec2inBox > .textBox{ width: 23rem;margin: 1rem; height: 22rem;
 display: flex; flex-direction: column; justify-content: center; align-items: center;
 border: 15px solid rgba(0,45,114,0.7); line-height: 1.5rem; border-radius: 0.5rem;}
 .sec2inBox > .textBox > h1{opacity: 0; transform: translateX(-100px); 
@@ -88,7 +99,8 @@ border: 15px solid rgba(0,45,114,0.7); line-height: 1.5rem; border-radius: 0.5re
 .textBox div{opacity: 0; transition: opacity 4s ease-out;}
 .textBox button{opacity: 0; transition: opacity 4s ease-out; margin-top: 1rem;
 background-color: #002d72; color: #ffffff; padding: 0.5rem 1.5rem; border-radius: 10px;
-font-weight: bold;}
+font-weight: bold; cursor: pointer;}
+.textBox button:hover{font-size: 15px; }
 .textBox h1{font-size: 50px; color: #002d72; font-weight: bold; }
 .sec2inBox > .imageBox{border: 1px solid blue; width:50rem; margin: 1rem;
     border: 3px solid rgba(0,45,114,0.7); height: 30rem; border-radius: 1.2rem;}
@@ -96,8 +108,7 @@ font-weight: bold;}
 .textBox div{ color: rgba(3,3,3,0.8); font-weight: bold;}
 /* sec2 */
 
-footer{margin: 3rem auto 0; width: 95vw; height: 8rem; border: 1px solid pink;
-background-color: #000000; 
+footer{margin: 3rem auto 0; width: 96vw; height: 8rem; background-color: #000000; 
 padding: 1rem 3rem; color: rgba(255,255,255,0.8);}
 footer > div {line-height: 0.5rem;display: flex; justify-content: space-between; align-items: center;
 width: 93%;}
@@ -113,3 +124,22 @@ width: 93%;}
         border:0.2rem solid #ff5910;
     }
 /* topBtn */
+
+@media (max-width: 768px) {
+    nav {display: none; }
+    .hamburger {display: block; }
+    .sec1 {height: 40rem;}
+    #slides div {height: 40rem;}
+    .arr {width: 1.5rem;height: 2.5rem;}
+    .sloganupText h1 {font-size: 30px;}
+    .sloganupText h2 {font-size: 18px;}
+    .fesinBox {width: 100%;height: auto;flex-direction: column;text-align: center;}
+    .fesinBox img {width: 80%; height: auto;}
+    .sec2inBox {flex-direction: column;width: 100%;text-align: center;}
+    .sec2inBox .textBox {width: 90%;}
+    footer {text-align: center; height: auto; padding: 1rem;}
+}
+
+
+
+
