@@ -17,8 +17,9 @@ header{display: flex; width: 100vw; height: 8rem;justify-content: space-between;
 .logo{width: 7rem; height: 7rem; margin-left: 10rem; display: flex;
 justify-content: center; align-items: center;}
 .logo img{width: 90%; height: 90%;}
-nav{display: flex; color: #ffffff; justify-content: space-around; width: 50rem;
-font-size: 1.8rem; font-weight: bold;}
+nav{display: flex; color: #ffffff; justify-content: end; width: 50rem;
+font-size: 1rem; font-weight: bold; margin-left: 30rem;}
+nav div {margin: 1rem;}
 .hdicons{width: 12rem;height: 7rem; margin-right: 10rem; color: #ffffff;
 display: flex; justify-content: center; align-items: center;}
 .naticon{background-image: url(../image/home/korea.png); width: 3rem; height: 2rem;
@@ -80,7 +81,8 @@ opacity: 0; transition: opacity 2s ease-out;}
 
 .fesSec{margin:-30rem auto; width:100vw;height: 40rem; background-color: #002d72; 
 display: flex; flex-direction: column; justify-content: center; align-items: center;}
-.fesSec h1{font-size: 50px; color: #ffffff; font-weight: bold; padding-bottom: 2rem;}
+.fesSec h1{font-size: 50px; color: #ffffff; font-weight: bold; padding-bottom: 2rem;
+opacity: 0; transform: translate(50px,50px); transition: opacity 1s ease-out, transform s ease-out; }
 .fesoutBox{display: flex;justify-content: space-between; align-items: center; width: 90%;}
 .fesinBox{display: flex; margin: 1rem; width: 75%; height: 18rem; border: 3px solid rgba(3,3,3,0.3); 
    justify-content: center; align-items: center; border-radius: 1rem; background-color: #ffffff;}

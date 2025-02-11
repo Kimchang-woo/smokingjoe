@@ -110,12 +110,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const tourBtn = document.querySelector('.tour .textBox button') 
         const stayBtn = document.querySelector('.stay .textBox button') 
         const foodBtn = document.querySelector('.food .textBox button') 
+        const festivalh1 = document.querySelector('.fesSec h1');
         
 
         const sloganOffset = slogan.offsetTop;
         const tourOffset = tourText.offsetTop;
         const stayOffset = stayText.offsetTop;
         const foodOffset = foodText.offsetTop;
+        const festivalh1Offset = festivalh1.offsetTop;
 
         const triggerPoint = scrollY + windowHeight* 0.8;
 
@@ -139,6 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
             foodDetail.style.opacity = 1;
             foodBtn.style.opacity =1;
             foodText.style.transform ="translateX(0)"
+        }
+        if(triggerPoint > festivalh1Offset){
+            festivalh1.style.opacity = 1;
+            festivalh1.style.transform ="translate(0,0)"
         }
     }
     window.addEventListener('scroll', scrollAnimation)
@@ -274,4 +280,6 @@ document.addEventListener("DOMContentLoaded", () => {
     mocloseBtn.addEventListener('click', function(){
         modal.classList.toggle('on')
     })
+
+
 });
