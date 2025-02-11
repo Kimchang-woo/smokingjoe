@@ -183,8 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // 서핑보드 위치 및 흔들림 효과
     let surfboardRight = {
-        x: canvas.width / 2 +650, 
-        y: canvas.height,
+        x: canvas.width / 2  +600, 
+        y: canvas.height / 2,
         width: 200,
         height: 200,
         angle: 0, 
@@ -262,21 +262,16 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("서핑보드 이미지 로드 완료"); // 디버깅
         animateWaves();
     };
-    document.addEventListener("DOMContentLoaded", () => {
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-menu");
     
-        hamburger.addEventListener("click", () => {
-            navMenu.style.display = navMenu.style.display === "flex" ? "none" : "flex";
-        });
-    
-        // 반응형에서 창 크기 변경 시 네비게이션 초기화
-        window.addEventListener("resize", () => {
-            if (window.innerWidth > 768) {
-                navMenu.style.display = "flex"; // 데스크탑 모드에서는 항상 보이게 설정
-            } else {
-                navMenu.style.display = "none"; // 모바일 모드에서는 햄버거 메뉴로 조작
-            }
-        });
-    });
+    //햄버거버튼 
+    const hamberger = document.querySelector('.hamburger');
+    const modal = document.querySelector('.modal')
+    const mocloseBtn =document.querySelector('#mocloseBtn')
+
+    hamberger.addEventListener('click', function(){
+        modal.classList.toggle('on')
+    })
+    mocloseBtn.addEventListener('click', function(){
+        modal.classList.toggle('on')
+    })
 });

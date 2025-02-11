@@ -33,6 +33,8 @@ transition: 0.5s;}
 .hamburger {display: none; cursor: pointer;font-size: 2rem;color: #ffffff;}
 /* 헤더 */
 
+.modal{display: none;}
+/* 모달 */
 .sec1{margin:auto; width: 100vw; height:52rem; position: relative; z-index: 0; overflow: hidden;
 display: flex; flex-direction: column;}
 #slides{width: calc(100% * 6); height: 100%; display: flex; transition: transform 0.5s ease-in-out;}
@@ -50,25 +52,25 @@ display: flex; flex-direction: column;}
     cursor: pointer;
     flex-shrink: 0;
 }
-.btns{display: flex;  justify-content: space-between; align-items: center;
-padding: 0.5rem 2rem ; width: 100vw; height: 5.2rem; background-color: #002d72;
+.btns{display: flex;  justify-content: space-around; align-items: center;
+padding: 0.5rem 2rem ; width: 98%; height: 5.2rem; background-color: #002d72;
 position: relative;}
 #leftBtn {position: relative; left: 2rem; transform: rotate(180deg);}
-#rightBtn {position: relative; right: 5rem;}
-#circles{width: 18rem; height: 3rem; margin: 1rem auto; flex-grow: 1;
+#rightBtn {position: relative; right: 4rem;}
+#circles{width: 18rem; height: 3rem; margin: auto; flex-grow: 1;
 display: flex; justify-content: center; align-items: center;}
 .circle{width: 4rem; height: 0.5rem; background-color: #ffffff;
 border-radius: 10%; margin: 0 0.5rem; cursor: pointer;}
 .circle.on{background-color: #ff5910;}
 /* 섹션1(슬라이드) */
 
-canvas{width: 100vw; height: 46rem; }
+canvas{width: 100vw; height: 46rem; display: block;}
 .sloganupText{display: flex; flex-direction: column; justify-content: center; align-items: center;
 margin-top: 18rem; background-color: #002d72; color: #ffffff; height: 19rem;}
 .sloganupText h1 {font-size: 45px; font-weight: bold;}
 .sloganupText h2 {font-size: 25px; font-weight: bold;}
 .slogan{margin: 10rem auto; width: 40%; height: 30rem; position: relative; z-index: 1;
-    position: relative; top: -48rem;
+    position: relative; top: -48rem; display: block;
 display: flex; justify-content: start; border: 4px solid rgba(0,45,114,0.5);
 background-image: url(../image/home/sloganimage.png); background-position: center;
 background-repeat: no-repeat; background-size: cover; border-radius: 20px 20px 10px 10px;}
@@ -126,18 +128,50 @@ width: 93%;}
 /* topBtn */
 
 @media (max-width: 768px) {
-    nav {display: none; }
-    .hamburger {display: block; }
-    .sec1 {height: 40rem;}
-    #slides div {height: 40rem;}
-    .arr {width: 1.5rem;height: 2.5rem;}
-    .sloganupText h1 {font-size: 30px;}
-    .sloganupText h2 {font-size: 18px;}
-    .fesinBox {width: 100%;height: auto;flex-direction: column;text-align: center;}
-    .fesinBox img {width: 80%; height: auto;}
-    .sec2inBox {flex-direction: column;width: 100%;text-align: center;}
-    .sec2inBox .textBox {width: 90%;}
-    footer {text-align: center; height: auto; padding: 1rem;}
+    header{display: flex; align-items: center; margin-bottom: 2rem;
+        justify-content: space-between; width: 100%; height: 100%;}
+    .hdicons{display: flex; justify-content: space-around; align-items: center; margin-right: 2rem;}
+    header nav{display: none;}
+    .logo{width: 100px; height: 100px;  margin-left: 2rem;}
+    .hamburger{display: block;}
+
+    .modal{display: flex; flex-direction: row; position: absolute; top: 0; left: 0; width: 100%; height: 65rem;
+        background-color: rgba(3,3,3,0.8); z-index: 1; opacity: 0; visibility: hidden; 
+        transition: opacity 0.3s ease-in-out, visibility 0.3s;}
+    .modal.on{opacity: 1; visibility: visible;}
+    .modal nav{margin-left: 10%; display: flex; flex-direction: column; justify-content: center;
+    align-items: center;} 
+    .modal nav div{padding: 3rem; font-size: 3.5rem;}
+    .modal button{width: 2rem; height: 2rem; margin: 1rem; font-size: 2.5rem; line-height: 0.5rem;
+    text-indent: -0.05rem; color: #ffffff;background-color: rgba(3,3,3,0.8); border: none;
+    cursor: pointer;}
+
+    
+    .sec1{height: 40rem;}
+    #slides{width:10rem; height: 35rem;}
+    .btns{width: 100%; height: 3rem; display: flex; justify-content: space-between;}
+    #leftBtn{left: 0;}
+    #rightBtn{right: 5rem;}
+    .arr{width: 1rem; height: 2rem;}
+    #circles{position: relative; left: -2rem;}
+
+    .sloganupText{margin: 10rem auto;}
+    canvas{display:none ;}
+    .slogan{top: 0; margin: 0; width: 98%;}
+    .slogan img{width: 40%; top: 18%; left: 55%;}
+
+    .fesSec{margin: 10rem auto; height: 100rem;}
+    .fesoutBox{display: flex; flex-direction: column; justify-content: center; align-items: center;}
+
+    .sec2outBox{margin: 10rem auto; height: 90rem;}
+    .sec2inBox{display: flex; width: 100%; height: 20rem; margin: auto 2rem;}
+    .textBox > div > p {display: none;}
+    .textBox{width: 20%;}
+    .sec2inBox > .imageBox{height: 24rem;}
+    .imageBox img{width:100%; height: 24rem;}
+
+    footer{height: 3rem; margin-top: -5rem; }
+    footer p {display: none;}
 }
 
 
