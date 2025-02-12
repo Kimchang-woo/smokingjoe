@@ -271,15 +271,15 @@ document.addEventListener("DOMContentLoaded", () => {
     
     //햄버거버튼 
     const hamberger = document.querySelector('.hamburger');
-    const modal = document.querySelector('.modal')
-    const mocloseBtn =document.querySelector('#mocloseBtn')
+    const modal = document.querySelector('.modal');
+    const mocloseBtn =document.querySelector('#mocloseBtn');
 
     hamberger.addEventListener('click', function(){
-        modal.classList.toggle('on')
-    })
+        modal.classList.toggle('on');
+    });
     mocloseBtn.addEventListener('click', function(){
-        modal.classList.toggle('on')
-    })
+        modal.classList.toggle('on');
+    });
 
 
     //폭죽 효과
