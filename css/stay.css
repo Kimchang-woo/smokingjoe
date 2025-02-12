@@ -11,62 +11,52 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
-header {
-  display: flex;
-  width: 100%;
-  height: 8rem;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #002d72;
-}
-.logo { 
-  width: 7rem; 
-  height: 7rem; 
-  border: 1px solid yellow; 
-  margin-left: 10rem; 
-}
-nav {
-  display: flex;
-  color: #ffffff;
-  justify-content: space-around;
-  width: 50rem;
-  font-size: 1.8rem;
-  font-weight: bold;
-  z-index: 1000;
-}
-.hdicons {
-  width: 12rem;
-  height: 7rem;
-  margin-right: 10rem;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.naticon {
-  background-image: url(../image/home/korea.png);
-  width: 3rem;
-  height: 2rem;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.naticon:hover .naticonsub { opacity: 1; }
-.naticonsub {
-  z-index: 1000;
-  position: relative;
-  top: 4rem;
-  right: 1.8rem;
-  background-color: #002d72;
-  width: 5.5rem;
-  padding: 0.5rem;
-  border: 0.2rem solid #ff5910;
-  border-radius: 10%;
-  opacity: 0;
-  transition: 0.5s;
-}
-.subnat { display: flex; justify-content: start; align-items: center; }
-.naticonsub img { width: 3rem; height: 2rem; padding: 0.2rem; margin-right: 0.2rem; }
+
+/* 창우형꺼 */
+a{text-decoration: none; color: #ffffff;}
+/* 기초작업 */
+header{display: flex; width: 100vw; height: 8rem;justify-content: space-between; 
+    align-items: center; background-color: #002d72;}
+.logo{width: 7rem; height: 7rem; margin-left: 10rem; display: flex;
+justify-content: center; align-items: center;}
+.logo img{width: 90%; height: 90%;}
+nav{display: flex; color: #ffffff; justify-content: end; width: 50rem;
+font-size: 1rem; font-weight: bold; margin-left: 30rem;}
+nav div {margin: 1rem;}
+.hdicons{width: 12rem;height: 7rem; margin-right: 10rem; color: #ffffff;
+display: flex; justify-content: center; align-items: center;}
+.naticon{background-image: url(../image/home/korea.png); width: 3rem; height: 2rem;
+background-size: cover; background-repeat: no-repeat; background-position: center;
+z-index: 1;}
+.naticon:hover .naticonsub{opacity: 1;} 
+.naticonsub{position: relative; top: 4rem; right: 1.8rem; background-color: #002d72; width: 5.5rem;
+padding: 0.5rem; border: 0.2rem solid #ff5910; border-radius: 10%; opacity: 0;;
+transition: 0.5s;}
+.naticonsub div:hover{cursor: pointer;}
+.subnat{display: flex; justify-content: start; align-items: center;}
+.naticonsub img {width: 3rem; height: 2rem; padding: 0.2rem; margin-right: 0.2rem;}
+.hamburger {display: none; cursor: pointer;font-size: 2rem;color: #ffffff;}
+/* 헤더 */
+
+.modal{display: none;}
+/* 모달 */
+footer{margin: 3rem auto 0; width: 96vw; height: 8rem; background-color: #000000; 
+padding: 1rem 3rem; color: rgba(255,255,255,0.8);}
+footer > div {line-height: 1.5rem;display: flex; justify-content: space-between; align-items: center;
+width: 93%;}
+/* footer */
+
+
+#topBtn{position: fixed; top: 88%; right: 3rem; display: flex; justify-content: center; align-items: center;
+    width: 5rem; height: 5rem; background-color: rgba(255,255,255,0.8); color: rgba(3,3,3,0.8);
+     border-radius: 1rem; border:0.2rem solid black; cursor: pointer;
+     opacity: 0; visibility: hidden; transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;}
+    #topBtn:hover {
+        font-size: 20px; background-color: rgba(0,45,114,1); color: #ffffff;
+        border:0.2rem solid #ff5910;
+    }
+/* topBtn */
+
 /* nav end */
 .top_1 {
   width: 100vw;
@@ -324,21 +314,6 @@ nav {
 .next-btn { right: 25%; }
 
 /* 푸터 */
-footer {
-  margin: 3rem auto 0;
-  width: 96vw;
-  height: 8rem;
-  background-color: #000;
-  padding: 1rem 3rem;
-  color: rgba(255,255,255,0.8);
-}
-footer > div {
-  line-height: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 93%;
-}
 
 /* TOP 버튼 */
 #topBtn {
@@ -512,7 +487,7 @@ animation: flyInFromRight 1s ease-out forwards;
   }
   .prev-btn { left: 2%; }
   .next-btn { right: 2%; }
-  footer{ height: 10rem; margin-top:10rem;}
+  
 
   @keyframes fadeInUp {
 from {
@@ -602,4 +577,26 @@ animation: flyInFromBottom 1s ease-out forwards;
 animation: flyInFromRight 1s ease-out forwards;
 }
 
+header{display: flex; align-items: center; margin-bottom: 2rem; padding: 0 1rem;
+  justify-content: space-between; width: 100%; height: 6rem;}
+.hdicons{display: flex; justify-content: space-around; align-items: center; margin-right: 2rem;}
+header nav{display: none;}
+.logo{width: 6rem; height: auto;  margin-left: 1rem;}
+.hamburger{display: block; font-size: 2rem; padding: 0.5rem;}
+
+.modalmodal{display: flex; flex-direction:row; justify-content: center;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100vh;
+  background-color: rgba(3,3,3,0.8); z-index: 1; opacity: 0; visibility: hidden; 
+  transition: opacity 0.3s ease-in-out, visibility 0.3s;}
+.modalmodal.on{opacity: 1; visibility: visible;}
+.modalmodal nav{margin-left: 10%; display: flex; flex-direction: column; justify-content: center;
+align-items: center; width: 100%; text-align: center;} 
+.modalmodal nav div{padding: 3rem; font-size: 2rem; padding: 1rem;}
+.modalmodal button{width: 2rem; height: 2rem; margin: 1rem; font-size: 2.5rem; line-height: 0.5rem;
+text-indent: -0.05rem; color: #ffffff;background-color: rgba(3,3,3,0.8); border: none;
+cursor: pointer;}
+
+footer{height: 3rem; margin-top: -5rem; }
+footer p {display: none;}
+#topBtn{z-index: 2;}
 }
