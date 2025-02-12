@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const surfboardImg = new Image();
     surfboardImg.src = '/image/home/surfboard.png'; // 절대경로로 수정
     
-    // 파도 애니메이션 관련 변수
+    // 파도 애니메이션 관련 변수(진폭,길이(파동주기),속도)
     let waveAmplitude1 = 50, waveAmplitude2 = 70, waveAmplitude3 = 90; 
     let waveLength1 = 0.02, waveLength2 = 0.015, waveLength3 = 0.01; 
     let waveSpeed1 = 0.04, waveSpeed2 = 0.03, waveSpeed3 = 0.02; 
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
         waveEffect: 0 
     };
     let surfboardLeft = {
-        x: canvas.width / 2 -650, 
+        x: canvas.width / 2 -600, 
         y: canvas.height,
         width: 200,
         height: 200,
@@ -271,15 +271,33 @@ document.addEventListener("DOMContentLoaded", () => {
     
     //햄버거버튼 
     const hamberger = document.querySelector('.hamburger');
-    const modal = document.querySelector('.modal')
-    const mocloseBtn =document.querySelector('#mocloseBtn')
+    const modal = document.querySelector('.modal');
+    const mocloseBtn =document.querySelector('#mocloseBtn');
 
     hamberger.addEventListener('click', function(){
-        modal.classList.toggle('on')
-    })
+        modal.classList.toggle('on');
+    });
     mocloseBtn.addEventListener('click', function(){
-        modal.classList.toggle('on')
-    })
+        modal.classList.toggle('on');
+    });
 
 
+    //폭죽 효과
+    
+    function createFirework (){
+        const fireworkContainer = document.querySelector('#firework');
+        const firework = document.createElement('div');
+        firework.classList.add('firework-effect');
+
+        firework.style.left = Math.random() * 100 +"%";
+        firework.style.top = Math.random() * 100 +"%";
+
+        fireworkContainer.appendChild(firework);
+
+        setTimeout(()=>{
+            firework.remove()
+        },1500)
+    }
+
+    setInterval(createFirework,300);
 });
