@@ -282,4 +282,22 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 
+    //폭죽 효과
+    
+    function createFirework (){
+        const fireworkContainer = document.querySelector('#firework');
+        const firework = document.createElement('div');
+        firework.classList.add('firework-effect');
+
+        firework.style.left = Math.random() * 100 +"%";
+        firework.style.top = Math.random() * 100 +"%";
+
+        fireworkContainer.appendChild(firework);
+
+        setTimeout(()=>{
+            firework.remove()
+        },1500)
+    }
+
+    setInterval(createFirework,300);
 });
