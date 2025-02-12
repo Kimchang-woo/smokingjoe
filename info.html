@@ -1,373 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/info.css">
     <title>Welcome to Haeundae</title>
-    <link rel="icon" href="./image/info/favicon.png" type="image/png">
+    <link rel="icon" href="./image/favicon.png" type="image/png">
     <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript"
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2237e1d4164afe675ac45fd0c6310ad4&libraries=services&autoload=false"></script>
-
-    <style>
-        @font-face {
-            font-family: 'MyFont';
-            src: url(../BusanFont.ttf) format('ttf');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            font-family: 'MyFont', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            width: 100vw;
-        }
-
-        /* 헤더 스타일 */
-        #map {
-            width: 100%; 
-            height: 500px;
-        }
-
-        .toggle-traffic {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #002d72;
-            color: white border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-
-        .toggle-traffic:hover {
-            background: #ff5910;
-        }
-
-        header {
-            display: flex;
-            width: 100%;
-            height: 8rem;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #002d72;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            width: 7rem;
-            height: 7rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo img {
-            width: 80%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        nav {
-            display: flex;
-            color: #ffffff;
-            justify-content: space-around;
-            width: 50rem;
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .hdicons {
-            width: 12rem;
-            height: 7rem;
-            margin-right: 10rem;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .naticon {
-            background-image: url(../image/home/korea.png);
-            width: 3rem;
-            height: 2rem;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .naticon:hover .naticonsub {
-            opacity: 1;
-        }
-
-        .naticonsub {
-            position: relative;
-            top: 4rem;
-            right: 1.8rem;
-            background-color: #002d72;
-            width: 5.5rem;
-            padding: 0.5rem;
-            border: 0.2rem solid #ff5910;
-            border-radius: 10%;
-            opacity: 0;
-            transition: 0.5s;
-        }
-
-        .subnat {
-            display: flex;
-            justify-content: start;
-            align-items: center;
-        }
-
-        .naticonsub img {
-            width: 3rem;
-            height: 2rem;
-            padding: 0.2rem;
-            margin-right: 0.2rem;
-        }
-
-        /* 섹션 레이아웃 */
-        .section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%
-        }
-
-        #container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .blankY {
-            width: 100%;
-            height: 70px;
-        }
-
-        .boxTitle {
-            display: block;
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        /********** 컨텐츠 시작 ***********/
-        .weather-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            width: 96%;
-            margin-bottom: 50px;
-        }
-
-        .directions-box {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            width: 90%;
-        }
-
-        /* 날씨 아이콘 */
-        .weather-icon {
-            width: 5rem;
-            height: auto;
-            margin-left: auto;
-        }
-
-        /* 날씨 텍스트 */
-        .weather-text {
-            font-size: 1.2rem;
-            line-height: 1.5;
-        }
-
-        .weather-box,
-        .forecast-box,
-        .search-box,
-        .directions-box {
-            text-align: center;
-            margin: auto;
-            padding: 10px;
-            border: none;
-            border-radius: 6px;
-            background-color: rgba(250, 250, 250, 0.7);
-            overflow: hidden;
-        }
-
-        .weather-box,
-        .forecast-box {
-            width: 48%;
-            height: 15rem;
-            padding: 10px;
-            border: none;
-            background-color: rgba(250, 250, 250, 0.7);
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
-
-
-        #forecast {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-
-        }
-
-        .forecast-item {
-            text-align: left;
-            padding-left: 50px;
-            display: flex;
-            align-items: center;
-
-        }
-
-        .forecast-detail1 {
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .forecast-item img {
-            margin-right: 10px;
-        }
-
-        .directions-box {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-            margin-top: 10px;
-            width: 91%;
-            margin-bottom: 19px;
-        }
-
-    
-        .directions-box button {
-            width: 100px;
-            height: 60px;
-            padding: 10px;
-            background: #002d72;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-        .directions-box button:hover {
-            background: #ff5910;
-        }
-
-        .directions-box h2 {
-            width: 100%;
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            padding: 0;
-
-        }
-
-        .search-box input {
-            padding: 5px;
-            width: 50%;
-        }
-
-
-        @media (max-width: 1100px) {
-
-            .forecast-item {
-                padding-left: 10px;
-                display: flex;
-                align-items: center;
-            }
-        }
-
-
-        @media (max-width: 850px) {
-            .forecast-detail1 {
-                display: none;
-            }
-
-            .forecast-detail2 {
-                display: none;
-
-            }
-
-        }
-
-        @media (max-width: 600px) {
-            .forecast-detail2 {
-                display: none;
-                font-size: 1rem;
-            }
-
-            .forecast-detail3 {
-                font-size: 12px;
-            }
-
-        }
-
-        footer {
-            margin: 3rem auto 0;
-            margin-top: 0;
-            width: 96vw;
-            height: 8rem;
-            background-color: #000000;
-            padding: 1rem 3rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        footer>div {
-            line-height: 0.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 93%;
-        }
-
-        /* footer */
-
-
-        #topBtn {
-            position: fixed;
-            top: 88%;
-            right: 3rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 5rem;
-            height: 5rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: rgba(3, 3, 3, 0.8);
-            border-radius: 1rem;
-            border: 0.2rem solid black;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-        }
-
-        #topBtn:hover {
-            font-size: 20px;
-            background-color: rgba(0, 45, 114, 1);
-            color: #ffffff;
-            border: 0.2rem solid #ff5910;
-        }
-
-        /* topBtn */
-    </style>
 </head>
 
 <body>
@@ -377,10 +18,11 @@
             <img src="./image/home/logo.png" alt="로고">
         </div>
         <nav>
-            <div>TOUR</div>
-            <div>FOOD</div>
-            <div>STAY</div>
-            <div>INFO</div>
+            <div><a href="/home.html">HOME</a></div>
+            <div><a href="/tour.html">TOUR</a></div>
+            <div><a href="/food.html">FOOD</a></div>
+            <div><a href="/stay.html">STAY</a></div>
+            <div><a href="/info.html">INFO</a></div>
         </nav>
         <div class="hdicons">
             <div class="naticon">
@@ -390,7 +32,19 @@
                     <div class="subnat"><img src="./image/home/china.png" alt="china">CHI</div>
                 </div>
             </div>
+            <div class="hamburger">☰</div>
         </div>
+
+        <div class="modal">
+            <nav>
+                <div><a href="/tour.html">TOUR</a></div>
+                <div><a href="/food.html">FOOD</a></div>
+                <div><a href="/stay.html">STAY</a></div>
+                <div><a href="/info.html">INFO</a></div>
+            </nav>
+            <button id="mocloseBtn">×</button>
+        </div>
+
     </header>
     <!-- 섹션시작임 -->
     <section class="section"
@@ -439,6 +93,7 @@
         </div>
         <div class="blankY"></div>
     </section>
+
     <footer>
         <div>
             <img src="./image/home/haeundaelogo.png" alt="">
@@ -450,227 +105,13 @@
                 <p>팀원: 이성현</p>
                 <p>팀원: 김정헌</p>
             </div>
-        </div>
-
+        </div>       
     </footer>
     <!-- footer end -->
-    <div id="topBtn">
+     <div id="topBtn">
         TOP▲
-    </div>
-    <!-- top버튼 -->
-    <script src="./js/home.js"></script>
-
-
-    <script>
-        const weatherApiKey = 'a64a5c4f491cc98941022c90285932bc';
-        const city = 'Busan';
-
-        function getWeatherIcon(weatherMain, weatherDescription, isDaytime) {
-            const iconMap = {
-                "Clear": isDaytime ? "01d.png" : "01n.png",
-                "Few Clouds": isDaytime ? "02d.png" : "02n.png",
-                "Scattered Clouds": "03d.png",
-                "Broken Clouds": isDaytime ? "04d.png" : "04n.png",
-                "Clouds": "03d.png",
-                "Shower Rain": isDaytime ? "09d.png" : "09n.png",
-                "Rain": isDaytime ? "10d.png" : "10n.png",
-                "Thunderstorm": isDaytime ? "11d.png" : "11n.png",
-                "Snow": isDaytime ? "13d.png" : "13n.png",
-                "Mist": isDaytime ? "50d.png" : "50n.png"
-            };
-
-            return iconMap[weatherMain] || "01d.png";
-        }
-
-        function fetchWeather() {
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric&lang=kr`;
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    console.log("API 응답 (현재 날씨):", data);
-
-                    const weatherMain = data.weather[0].main;
-                    const weatherDescription = data.weather[0].description;
-                    const temperature = data.main.temp;
-                    const cloudiness = data.clouds.all;
-                    const currentHour = new Date().getHours();
-                    const isDaytime = currentHour >= 6 && currentHour < 18;
-                    const iconFileName = getWeatherIcon(weatherMain, weatherDescription, isDaytime);
-                    const iconPath = `./image/info/${iconFileName}`;
-
-                    console.log("이미지 경로:", iconPath);
-
-                    // 아이콘 및 텍스트 업데이트
-                    document.getElementById('weather-icon').src = iconPath;
-                    document.getElementById('weather-text').innerHTML =
-                        `"${weatherDescription}" [ 🌡️: ${temperature.toFixed(1)}°C <span class="forecast-detail1">/ 💦: ${cloudiness}%</span> ]`;
-                })
-                .catch(error => {
-                    console.error("날씨 API 호출 실패:", error);
-                    document.getElementById('weather-text').innerText = '날씨 정보 불러오기 실패';
-                });
-        }
-
-        function fetchForecast() {
-            const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${weatherApiKey}&units=metric&lang=kr`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    console.log("API 응답 (일기예보):", data);
-
-                    const forecasts = data.list
-                        .filter((_, index) => index % 8 == 0)
-                        .slice(0, 4)
-                        .map(entry => {
-                            const date = new Date(entry.dt * 1000);
-                            const formattedDate = date.toLocaleDateString('ko-KR');
-                            const isDaytime = date.getHours() >= 6 && date.getHours() < 18;
-                            const forecastMain = entry.weather[0].main;
-                            const forecastDescription = entry.weather[0].description;
-                            const cloudiness = entry.clouds.all;
-                            const forecastIconFileName = getWeatherIcon(forecastMain, forecastDescription, isDaytime);
-                            const forecastIconPath = `./image/info/${forecastIconFileName}`;
-
-                            console.log("예보 날짜:", formattedDate, "아이콘 경로:", forecastIconPath);
-
-                            return `<li class="forecast-item">
-                        <img src="${forecastIconPath}" alt="예보 아이콘" style="width:30px; height:30px; vertical-align:middle;">
-                       <span class ="forecast-detail2">${formattedDate}</span> <span class="forecast-detail1">"${forecastDescription}"</span><span class = "forecast-detail3">[🌡️ : ${entry.main.temp.toFixed(1)}°C / 💦 : ${cloudiness}% ]
-                    </span></li>`;
-                        })
-                        .join('');
-
-                    document.getElementById('forecast').innerHTML = forecasts;
-                })
-                .catch(error => {
-                    console.error("예보 API 호출 실패:", error);
-                    document.getElementById('forecast').innerHTML = '날씨 예보 불러오기 실패';
-                });
-        }
-        fetchWeather();
-        fetchForecast();
-
-        //--------------------------------------------------날씨 끝
-        let center = {
-            "해운대해수욕장": { lat: 35.1587, lng: 129.1604 },
-            "송정해수욕장": { lat: 35.1800, lng: 129.1994 },
-            "동백섬": { lat: 35.1532, lng: 129.1527 },
-            "달맞이길": { lat: 35.1674, lng: 129.1780 },
-            "더베이101": { lat: 35.1535, lng: 129.1520 },
-            "센텀시티": { lat: 35.1698, lng: 129.1307 },
-            "해운대전통시장": { lat: 35.1633, lng: 129.1633 },
-            "블루라인파크": { lat: 35.1601, lng: 129.1635 }
-        };
-
-        let map, marker, infowindow;
-        let trafficLayerOn = false;
-
-        function initMap() {
-            var mapContainer = document.getElementById('map');
-
-            if (!mapContainer) {
-                console.error("map 요소를 찾을 수 없습니다.");
-                return;
-            }
-
-            var mapOption = {
-                center: new kakao.maps.LatLng(center["해운대해수욕장"].lat, center["해운대해수욕장"].lng), // 기본 중심 
-                level: 4
-            };
-
-            map = new kakao.maps.Map(mapContainer, mapOption);
-            marker = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(center["해운대해수욕장"].lat, center["해운대해수욕장"].lng),
-                map: map
-            });
-
-            infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-            infowindow.setContent(`<div style=" display: table-cell; vertical-align: middle; padding:10px; padding-left: 24px; font-size:16px; text-align: center; width: 100px;">해운대해수욕장</div>`);
-            infowindow.open(map, marker);
-
-            //  기본적으로 교통정보 추가
-            map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-            trafficLayerOn = true;
-
-            // 지도가 보이는 시점에 relayout 적용 시간차 줘야함
-            setTimeout(() => {
-                console.log("map.relayout() 실행");
-                map.relayout();
-            }, 500);
-        }
-
-        function openDirections(place) {
-            if (!center[place]) {
-                alert("장소를 찾을 수 없습니다.");
-                return;
-            }
-
-            var position = new kakao.maps.LatLng(center[place].lat, center[place].lng);
-            map.setCenter(position);
-
-            if (marker) {
-                marker.setMap(null);
-            }
-
-            marker = new kakao.maps.Marker({
-                position: position,
-                map: map
-            });
-
-            infowindow.setContent(`<div style="display: table-cell; vertical-align: middle; padding: 10px; padding-left: 13px;font-size: 16px; width: 120px; text-align: center;">${place}</div>`);
-            infowindow.open(map, marker);
-        }
-
-        function toggleTraffic() {
-            if (trafficLayerOn) {
-                map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-                trafficLayerOn = false;
-                console.log("🚦 교통정보 OFF");
-            } else {
-                map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-                trafficLayerOn = true;
-                console.log("🚦 교통정보 ON");
-            }
-        }
-
-        //Kakao API 로드 후 실행
-        kakao.maps.load(initMap);
-
-        // 써치플레이쓰
-        function searchPlace(place) {
-            window.open(`https://map.kakao.com/?q=${place}`, '_blank');
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-
-            document.getElementById('searchBtn').addEventListener('click', () => {
-                const query = document.getElementById('searchQuery').value.trim();
-                if (query) window.open(`https://map.kakao.com/?q=${query}`, '_blank');
-            });
-        });
-
-
-        //top버튼
-        const topBtn = document.querySelector("#topBtn")
-
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 500) {
-                topBtn.style.opacity = 1;
-                topBtn.style.visibility = "visible"
-            } else {
-                topBtn.style.opacity = 0;
-                topBtn.style.visibility = "hidden"
-            }
-        })
-        topBtn.addEventListener('click', function () {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        })
-    </script>
-
+     </div>
+     <!-- top버튼 -->
+     <script defer src="./js/info.js"></script>
 </body>
-
 </html>
