@@ -1,29 +1,39 @@
             // JSON 형태의 이미지 데이터 – 각 클릭 대상 div의 id를 키로 사용
             const imageData = {
-                "sec2-1": ["./image/food/sijang/donuts.jpg", "./image/stay/hyatt/park_2.PNG", "./image/stay/hyatt/park_1.PNG"],
-                "sec2-2": ["./image/stay/hyatt/park_3.jpg", "./image/stay/hyatt/park_5.jpg", "./image/stay/hyatt/park_7.jpg", "./image/stay/hyatt/park_8.jpg"],
-                "sec2-3": ["./image/stay/hyatt/park_6.png", "./image/stay/hyatt/park_13.jpg", "./image/stay/hyatt/park_14.jpg"],
-                "sec2-4": ["./image/stay/hyatt/park_10.jpg", "./image/stay/hyatt/park_9.jpg", "./image/stay/hyatt/park_17.jpg", "./image/stay/hyatt/park_18.jpg"],
+                "sec2-1": ["./image/food/sijang/kom4.jpg", "./image/food/sijang/kom3.jpg", "./image/food/sijang/kom6.jpg"],
+                "sec2-2": ["./image/food/sijang/odaeng1.jpeg", "./image/food/sijang/odaeng4.jpeg", "./image/food/sijang/odaeng3.jpg", "./image/food/sijang/odaeng5.jpeg"],
+                "sec2-3": ["./image/food/sijang/donuts.jpg", "./image/food/sijang/fry1.jpeg", "./image/food/sijang/kkochi.jpg"],
+                "sec2-4": ["./image/food/sijang/Ejr1.jpeg", "./image/food/sijang/Ejr2.jpg", "./image/food/sijang/Ejr3.png", "./image/food/sijang/Ejr5.png"],
                 
-                "sec3-1": ["./image/stay/west/west_21.jpg", "./image/stay/west/west_1.jpg", "./image/stay/west/west_4.jpg"],
-                "sec3-2": ["./image/stay/west/west_23.jpg", "./image/stay/west/west_9.png", "./image/stay/west/west_13.png"],
-                "sec3-3": ["./image/stay/west/west_2.png", "./image/stay/west/west_15.png", "./image/stay/west/west_17.png"],
-                "sec3-4": ["./image/stay/west/west_18.png", "./image/stay/west/west_19.png", "./image/stay/west/west_20.png"],
+                "sec3-1": ["./image/food/coffee/rang/co.jpeg", "./image/food/coffee/rang/co2.jpeg", "./image/food/coffee/rang/co4.jpeg"],
+                "sec3-2": ["./image/food/coffee/rang/te3.jpeg", "./image/food/coffee/rang/tea.jpeg", "./image/food/coffee/rang/te4.jpeg"],
+                "sec3-3": ["./image/food/coffee/rang/de4.jpeg", "./image/food/coffee/rang/de3.jpeg", "./image/food/coffee/rang/de6.jpeg"],
+                "sec3-4": ["./image/food/coffee/rang/view2.jpeg", "./image/food/coffee/rang/view3.jpeg", "./image/food/coffee/rang/view4.jpeg"],
                 
-                "sec4-1": ["./image/stay/para/para_36.jpg", "./image/stay/para/para_1.jpg", "./image/stay/para/para_37.jpg"],
-                "sec4-2": ["./image/stay/para/para_12.jpg", "./image/stay/para/para_13.jpg", "./image/stay/para/para_16.jpg"],
-                "sec4-3": ["./image/stay/para/para_10.jpg", "./image/stay/para/para_8.jpg", "./image/stay/para/para_9.jpg"],
-                "sec4-4": ["./image/stay/para/para_25.jpg", "./image/stay/para/para_28.jpg", "./image/stay/para/para_33.jpg"],
+                "sec4-1": ["./image/food/coffee/black/co1.jpeg", "./image/food/coffee/black/black 5.jpg", "./image/food/coffee/black/co3.jpeg"],
+                "sec4-2": ["./image/food/coffee/black/te6.jpg", "./image/food/coffee/black/te1.png", "./image/food/coffee/black/te2.png"],
+                "sec4-3": ["./image/food/coffee/black/black6.jpg", "./image/food/coffee/black/de.jpeg", "./image/food/coffee/black/de3.jpeg"],
+                "sec4-4": ["./image/food/coffee/black/in1.jpeg", "./image/food/coffee/black/in4.jpeg", "./image/food/coffee/black/in2.jpeg"],
                 
-                "sec5-1": ["./image/stay/sig/sig_18.jpg", "./image/stay/sig/sig_16.jpg", "./image/stay/sig/sig_17.jpg"],
-                "sec5-2": ["./image/stay/sig/sig_10.jpg", "./image/stay/sig/sig_11.jpg", "./image/stay/sig/sig_9.jpg"],
-                "sec5-3": ["./image/stay/sig/sig_2.png", "./image/stay/sig/sig_3.png", "./image/stay/sig/sig_8.jpg"],
-                "sec5-4": ["./image/stay/sig/sig_5.png", "./image/stay/sig/sig_13.jpg", "./image/stay/sig/sig_14.jpg"],
+                "sec5-1": ["./image/food/coffee/AND COFFEE/and 7.jpg ", "./image/food/coffee/AND COFFEE/co1.jpeg", "./image/food/coffee/AND COFFEE/co3.jpeg"],
+                "sec5-2": ["./image/food/coffee/AND COFFEE/in1.jpeg", "./image/food/coffee/AND COFFEE/in3.jpeg", "./image/food/coffee/AND COFFEE/in2.jpeg"],
+                "sec5-3": ["./image/food/coffee/AND COFFEE/and 4.jpg", "./image/food/coffee/AND COFFEE/de3.jpeg", "./image/food/coffee/AND COFFEE/de2.jpeg"],
+                "sec5-4": ["./image/food/coffee/AND COFFEE/and 10.jpg", "./image/food/coffee/AND COFFEE/and 6.jpg", "./image/food/coffee/AND COFFEE/de1.jpeg"],
                 
-                "sec6-1": ["./image/stay/grand/grand_2.jpg", "./image/stay/grand/grand_18.jpg", "./image/stay/grand/grand_19.jpg"],
-                "sec6-2": ["./image/stay/grand/grand_16.jpg", "./image/stay/grand/grand_10.jpg", "./image/stay/grand/grand_13.jpg"],
-                "sec6-3": ["./image/stay/grand/grand_4.jpg", "./image/stay/grand/grand_3.jpg", "./image/stay/grand/grand_20.jpg"],
-                "sec6-4": ["./image/stay/grand/grand_21.jpg", "./image/stay/grand/grand_22.jpg", "./image/stay/grand/grand_23.jpg"]
+                "sec6-1": ["./image/food/foods/rma/rma7.jpg", "./image/food/foods/rma/rma13.jpeg", "./image/food/foods/rma/rma12.jpeg"],
+                "sec6-2": ["./image/food/foods/rma/rma6.jpg", "./image/food/foods/rma/rma14.jpeg", "./image/food/foods/rma/rma14.jpeg"],
+                "sec6-3": ["./image/food/foods/rma/rma1.jpg", "./image/food/foods/rma/rma5.jpg", "./image/food/foods/rma/rma8.jpg"],
+                "sec6-4": ["./image/food/foods/rma/in2.jpeg", "./image/food/foods/rma/in4.jpeg", "./image/food/foods/rma/in.jpeg","./image/food/foods/rma/in3.jpeg"],
+
+                "sec7-1": ["./image/food/foods/dml/dml3.jpg", "./image/food/foods/dml/dml6.jpeg", "./image/food/foods/dml/dml5.jpg"],
+                "sec7-2": ["./image/food/foods/dml/dml9.png", "./image/food/foods/dml/dml8.png", "./image/food/foods/dml/dml10.png"],
+                "sec7-3": ["./image/food/foods/dml/tlf1.jpeg", "./image/food/foods/dml/tlf2.jpeg", "./image/food/foods/dml/tlf3.jpeg"],
+                "sec7-4": ["./image/food/foods/dml/menu.jpg"],
+
+                "sec8-1": ["./image/food/foods/al/mi4.jpg", "./image/food/foods/al/mi.jpg", "./image/food/foods/al/thx2.jpeg"],
+                "sec8-2": ["./image/food/foods/al/go.jpeg", "./image/food/foods/al/go2.jpeg", "./image/food/foods/al/go3.jpeg"],
+                "sec8-3": ["./image/food/foods/al/menu.jpg", "./image/food/foods/al/menu1.jpg", "./image/food/foods/al/menu2.jpg"],
+                "sec8-4": ["./image/food/foods/al/tlf1.jpeg", "./image/food/foods/al/tlf2.jpeg", "./image/food/foods/al/tlf3.jpeg","./image/food/foods/al/tlf4.jpeg"]
               };
               
               document.addEventListener("DOMContentLoaded", function(){
@@ -33,7 +43,7 @@
                 const modalName = document.querySelector(".modal-Name");
                 
                 const clickableDivs = document.querySelectorAll(
-                  "#sec2_botBox_id > div, #sec3_botBox_id > div, #sec4_botBox_id > div, #sec5_botBox_id > div, #sec6_botBox_id > div"
+                  "#sec2_botBox_id > div, #sec3_botBox_id > div, #sec4_botBox_id > div, #sec5_botBox_id > div, #sec6_botBox_id > div, #sec7_botBox_id > div, #sec8_botBox_id > div"
                 );
                 
                 let currentImageIndex = 0;

@@ -73,7 +73,7 @@ width: 93%;}
   font-size: 1.7rem;
   color: #ffffff;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
   }
   .mainName > p { font-size: 2.1rem; }
   ul {
@@ -113,7 +113,7 @@ width: 93%;}
   border-radius: 1rem;
   color: #ffffff;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
   font-weight: bold;
   font-size: 1.5rem;
   }
@@ -156,7 +156,7 @@ width: 93%;}
   /* 내부 제목 div */
   .sec2_botBox > div > div {
   padding: 0.2rem 2rem;
-  /* background-color: rgb(0, 0, 0); */
+  background-color: rgb(0, 0, 0);
   opacity: 0.8;
   position: absolute;
   top: 50%;
@@ -210,7 +210,7 @@ width: 93%;}
   }
   .sec3_botBox > div > div {
   padding: 0.2rem 2rem;
-  /* background-color: rgb(0, 0, 0); */
+  background-color: rgb(0, 0, 0);
   opacity: 0.8;
   position: absolute;
   top: 50%;
@@ -445,9 +445,11 @@ animation: flyInFromRight 1s ease-out forwards;
     width: 100% !important;
     height: auto !important;
     margin: 0.5rem 0;
+    text-align: center;
   }
   .topBox_text{
     display: none;
+    
   }
   .sec2_topBox .image-box,
   .sec3_topBox .image-box {
