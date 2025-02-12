@@ -38,7 +38,7 @@ transition: 0.5s;}
 .hamburger {display: none; cursor: pointer;font-size: 2rem;color: #ffffff;}
 /* 헤더 */
 
-.modal{display: none;}
+.modalmodal{display: none;}
 /* 모달 */
 footer{margin: 3rem auto 0; width: 96vw; height: 8rem; background-color: #000000; 
 padding: 1rem 3rem; color: rgba(255,255,255,0.8);}
