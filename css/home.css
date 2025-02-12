@@ -29,6 +29,7 @@ z-index: 1;}
 .naticonsub{position: relative; top: 4rem; right: 1.8rem; background-color: #002d72; width: 5.5rem;
 padding: 0.5rem; border: 0.2rem solid #ff5910; border-radius: 10%; opacity: 0;;
 transition: 0.5s;}
+.naticonsub div:hover{cursor: pointer;}
 .subnat{display: flex; justify-content: start; align-items: center;}
 .naticonsub img {width: 3rem; height: 2rem; padding: 0.2rem; margin-right: 0.2rem;}
 .hamburger {display: none; cursor: pointer;font-size: 2rem;color: #ffffff;}
@@ -198,6 +199,7 @@ width: 93%;}
 
     footer{height: 3rem; margin-top: -5rem; }
     footer p {display: none;}
+    #topBtn{z-index: 2;}
 }
 
 
