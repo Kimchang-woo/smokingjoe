@@ -36,6 +36,28 @@ document.addEventListener("DOMContentLoaded", function() {
             image.style.animation = ''; // 애니메이션 다시 적용
         });
     }
+
+    const topBtn = document.querySelector("#topBtn");
+
+    window.addEventListener("scroll", function () {
+        console.log("스크롤 위치:", window.scrollY); // 현재 스크롤 값 확인
+    });
+    window.addEventListener('scroll', function(){
+        if(window.scrollY >500){
+                topBtn.style.opacity = 1;
+                topBtn.style.visibility ="visible"
+        }else{
+                topBtn.style.opacity = 0;
+                topBtn.style.visibility ="hidden"
+            }
+        })
+    topBtn.addEventListener('click',function(){
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    })
+
 });
 const hamberger = document.querySelector('.hamburger');
 const  modal = document.querySelector('.modal');
@@ -47,23 +69,8 @@ hamberger.addEventListener('click', function(){
 mocloseBtn.addEventListener('click', function(){
     modal.classList.toggle('on');
 });
-const topBtn = document.querySelector("#topBtn")
 
-    window.addEventListener('scroll', function(){
-        if(window.scrollY >500){
-            topBtn.style.opacity = 1;
-            topBtn.style.visibility ="visible"
-        }else{
-            topBtn.style.opacity = 0;
-            topBtn.style.visibility ="hidden"
-        }
-    })
-    topBtn.addEventListener('click',function(){
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    })
+
 
 hoverEffect();
 
