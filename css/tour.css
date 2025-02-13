@@ -9,6 +9,7 @@ body {
     margin: 0; padding: 0; overflow-x: hidden;
     width: 100vw; 
 }
+.tourSub img{border-radius: 0.5rem;}
 header{display: flex; width: 100vw; height: 8rem;justify-content: space-between; 
     align-items: center; background-color: #002d72;}
 .logo{width: 7rem; height: 7rem; margin-left: 10rem; display: flex;
@@ -41,6 +42,7 @@ section{
 }
 .tourSub{
     padding: 3rem; padding-top: 0; padding-bottom: 0;
+    display: flex; flex-direction: column;
 }
 .mainImage > img {
     width: 50rem; height: 30rem;
@@ -82,6 +84,7 @@ section{
 .word{
     width: 50rem; height: 15rem; margin-top: 10rem; 
     text-align: center; line-height: 3rem; color: #ff5910;
+    display: flex; flex-direction: column; justify-content: space-between;
 }
 .main{
     width: 50rem; font-size: 3rem; font-weight: bold;
@@ -117,14 +120,14 @@ footer{margin: 3rem auto 0; margin-top: 0; width: 96vw; height: 8rem; background
     width: 93%;}
     /* footer */
     
-    #topBtn{position: fixed; top: 88%; right: 3rem; display: flex; justify-content: center; align-items: center;
+#topBtn{position: fixed; top: 88%; right: 3rem; display: flex; justify-content: center; align-items: center;
         width: 5rem; height: 5rem; background-color: rgba(255,255,255,0.8); color: rgba(3,3,3,0.8);
         z-index: 10; 
         border-radius: 1rem; border:0.2rem solid black; cursor: pointer;
          opacity: 0; visibility: hidden; transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;}
-        #topBtn:hover {
-            font-size: 20px; background-color: rgba(0,45,114,1); color: #ffffff;
-            border:0.2rem solid #ff5910;
+#topBtn:hover {
+        font-size: 20px; background-color: rgba(0,45,114,1); color: #ffffff;
+        border:0.2rem solid #ff5910;
         }
     /* topBtn */
     
@@ -134,54 +137,59 @@ footer{margin: 3rem auto 0; margin-top: 0; width: 96vw; height: 8rem; background
             background-color: #002d72; padding: 0; height: 17rem;
         }
         .tourSub{
-            background-color: #002d72; padding: 0; height: 19rem;
-            padding-left: 2.1rem; padding-top: 0; padding-bottom: 0;
-            padding-bottom: 2rem;
+            background-color: #002d72; padding: 0 0 3rem 0; height: 40rem;
+            justify-content: center; align-items: center; 
+            border-bottom: 2px solid #ffffff;
         }
         .mainWord{
             position: absolute; top: 2rem; left: 45%; 
             font-size: 1.8rem; color: #ff5910; font-weight: bold;
         }
+  
         .mainImage{
-            width: 100%; height: 10rem;
+            width: 30%; height: 10rem;
             display: block;
+            position: relative;
         }
         .mainImage > img {
-            width: 10rem; height: 7rem;
-            position: relative;
-            top: 0; left: 0.3rem;
+            width:15rem; height: 10rem;
+       
         }
         .subImage{
-            width: 100%; height: 20rem;
-            display: block; margin-top: 2rem;
+            width: 100vw; height: 24rem;
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: center;
+             margin-top: 2rem;
+             gap: 1rem;
         }
         .subImage > img{
-            width: 8rem; height: 5rem; 
+            width: 13rem; height: 10rem; 
             border: 1.5px solid #1054b9;
             cursor: default;
-            animation: none;
-            margin-right: 1.3rem;
-            margin-left: 0.5rem;
+            animation: none;          
         }
         .ups{
-            height: 10rem;
-            padding: 0.1rem; padding-top: rem;
-            display: flex;
+            height: 8rem; width: 70%;
+            justify-content: space-between; align-items: center;
         }
         .word{
-            width: 8rem; height: 7rem;  
-            color: #ff5910; position: relative; 
-            left: -2.7rem; top: -9.5rem;
+            width: 10rem; height: 7rem;  
+            color: #ff5910;
+             position: relative; 
+             top: -5rem;
             text-align: center; line-height: 1rem;
             align-content: center;
-           
+
         }
+        .toLeft > img {position: relative; left: -5rem;}
         .main{
-            width: 7rem; font-size: 1rem; font-weight: bold;
-            top: 0; left: 0;
+            width: 13rem; font-size: 1.5rem; font-weight: bold;
+            position: relative;
+            top: 0; left: -1.4rem;
         }
         .sub{
-            width: 7rem; font-size: 0.7rem; font-weight: bold;
+            width: 10rem; font-size: 0.7rem; font-weight: bold;
             top: 0; left: 0;
         }
         .tourMain > div > img{
@@ -190,50 +198,6 @@ footer{margin: 3rem auto 0; margin-top: 0; width: 96vw; height: 8rem; background
         .tourMain > div{
             position: relative;
         }
-
-        .mainWord:nth-child(2n-1){
-            position: absolute; top: 2rem; left: 45%; 
-            font-size: 1.8rem; color: #ff5910; font-weight: bold;
-        }
-        .mainImage:nth-child(2n-1){
-            width: 20rem; height: 10rem;
-            display: block;
-        }
-        .mainImage:nth-child(2n) > img {
-            width: 10rem; height: 7rem;
-            position: relative;
-            top: 0; left: 2rem;
-        }
-        .subImage:nth-child(2n-1){
-            width: 100%; height: 20rem;
-             display: block;
-        }
-        .subImage:nth-child(2n-1) > img{
-            width: 9.3rem; height: 5rem; 
-            border: 1.5px solid #1054b9;
-            cursor: default;
-            animation: none;
-        }
-        .ups:nth-child(2n-1){
-            height: 6rem;
-            padding: 0.1rem; padding-top: rem;
-            display: flex;
-        }
-        .word:nth-child(2n-1){
-            width: 7rem; height: 10rem;  
-            color: #ff5910; position: relative; 
-            left: 1rem; top: -11rem;
-            text-align: center; line-height: 1rem;
-
-        }
-        .main:nth-child(2n-1){
-            width: 7rem; font-size: 1rem; font-weight: bold;
-            top: 0; left: 0;
-        }
-        .sub:nth-child(2n-1){
-            width: 7rem; font-size: 0.7rem; font-weight: bold;
-            top: 0; left: 0;
-        }
         
         .subImage > img:nth-child(5){
             display: none;
@@ -241,7 +205,7 @@ footer{margin: 3rem auto 0; margin-top: 0; width: 96vw; height: 8rem; background
         .subImage > img:nth-child(6){
             display: none;
         }
-        
+
         #myModal{
             display: none; top: 0; left: 0; width: 100vw; height: 100%;
             background-color: rgba(0,0,0,0.8); z-index: 1;
@@ -278,7 +242,7 @@ text-indent: -0.05rem; color: #ffffff;background-color: rgba(3,3,3,0.8); border:
 cursor: pointer;}
 footer{height: 5rem; margin-top: 0rem;}
     footer p {display: none;}
-    #topBtn{z-index: 10;}
+    #topBtn{z-index: 2;}
 
     }
     

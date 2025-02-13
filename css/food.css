@@ -599,7 +599,7 @@ align-items: center; width: 100%; text-align: center;}
 text-indent: -0.05rem; color: #ffffff;background-color: rgba(3,3,3,0.8); border: none;
 cursor: pointer;}
 
-footer{height: 3rem; margin-top: -5rem; }
+footer{height: 3rem; margin-top: 0rem; }
 footer p {display: none;}
 #topBtn{z-index: 2;}
 }
